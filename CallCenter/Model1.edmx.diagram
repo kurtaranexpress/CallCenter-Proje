@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3c7523b862474c2dbea6bcbf0d3378f3" Name="Diagram1" ZoomLevel="50">
+        <EntityTypeShape EntityType="CallCenterModel.CALISMACIKISKODLARI_TBL" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="CallCenterModel.CALISMALAR_TBL" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CallCenterModel.CALISMAPERIYOTLARI_TBL" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CallCenterModel.CALISMATAKVIMI_TBL" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CallCenterModel.CIKISKODLARI_TBL" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="CallCenterModel.FORUMKONULARI_TBL" Width="1.5" PointX="8.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CallCenterModel.GENELTAKVIM_TBL" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CallCenterModel.KULLANICICALISMALAR_TBL" Width="1.5" PointX="6" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="CallCenterModel.MESAJALICILARI_TBL" Width="1.5" PointX="13.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CallCenterModel.MESAJLAR_TBL" Width="1.5" PointX="11" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CallCenterModel.RENKLER_TBL" Width="1.5" PointX="3.75" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CallCenterModel.SSS_TBL" Width="1.5" PointX="8.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CallCenterModel.YETKIACIKLAMALAR_TBL" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
+        <AssociationConnector Association="CallCenterModel.CALISMACIKISKODLARI_TBL_CCK_CAL_ID_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="CallCenterModel.CALISMACIKISKODLARI_TBL_CCK_CK_ID_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="CallCenterModel.CALISMAPERIYOTLARI_TBL_CP_CAL_ID_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="CallCenterModel.CALISMATAKVIMI_TBL_CT_CAL_ID_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="CallCenterModel.KULLANICICALISMALAR_TBL_KC_CAL_ID_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="CallCenterModel.MESAJLAR_TBL_MSJ_FR_ID_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="CallCenterModel.MESAJALICILARI_TBL_MA_MSJ_ID_fkey" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CallCenterModel.YETKILER_TBL" Width="1.5" PointX="13.375" PointY="4.75" />
+        <EntityTypeShape EntityType="CallCenterModel.KULLANICILAR_TBL" Width="1.5" PointX="3.75" PointY="30.5" />
+        <AssociationConnector Association="CallCenterModel.KULLANICICALISMALAR_TBL_KC_KUL_ID_fkey" />
+        <EntityTypeShape EntityType="CallCenterModel.ISTEKLER_TBL" Width="1.5" PointX="6.75" PointY="17.25" />
+        <EntityTypeShape EntityType="CallCenterModel.CAGRILAR_TBL" Width="1.5" PointX="9" PointY="24.875" />
+        <EntityTypeShape EntityType="CallCenterModel.RANDEVULAR_TBL" Width="1.5" PointX="9" PointY="19.125" />
+        <AssociationConnector Association="CallCenterModel.CAGRILAR_TBL_CAG_IST_ID_fkey" />
+        <AssociationConnector Association="CallCenterModel.RANDEVULAR_TBL_RAN_CAL_ID_fkey" />
+        <AssociationConnector Association="CallCenterModel.RANDEVULAR_TBL_RAN_IST_ID_fkey" />
+        <AssociationConnector Association="CallCenterModel.RANDEVULAR_TBL_RAN_KUL_ID_fkey" />
+        <AssociationConnector Association="CallCenterModel.RANDEVULAR_TBL_RAN_DURUMID_fkey" />
+        <EntityTypeShape EntityType="CallCenterModel.RANDEVULISTERENKLERI_TBL" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CallCenterModel.ROLLER_TBL" Width="1.5" PointX="1.5" PointY="31.375" />
+        <AssociationConnector Association="CallCenterModel.KULLANICILAR_TBL_KUL_ROL_ID_fkey" />
+        <EntityTypeShape EntityType="CallCenterModel.GENELAYARLAR_TBL" Width="1.5" PointX="5.375" PointY="11.75" />
+        <EntityTypeShape EntityType="CallCenterModel.LOG_TBL" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="CallCenterModel.mv_study_name" Width="1.5" PointX="5.375" PointY="6.75" />
+        <EntityTypeShape EntityType="CallCenterModel.mv_tuik_personel" Width="1.5" PointX="7.375" PointY="4.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

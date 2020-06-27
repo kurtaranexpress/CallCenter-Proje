@@ -1,0 +1,776 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CC2E92A3-9041-48C5-B886-64905CFBA49A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CallCenter</RootNamespace>
+    <AssemblyName>CallCenter</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Phone1.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=1.60.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.60.6\lib\net451\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Images.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v18.2.Core, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.SpellChecker.v18.2.Core, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.TreeMap.v18.2.Core, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v18.2.Core, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v18.2.Win, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v18.2.Core, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v18.2.Extensions, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraSpellChecker.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeMap.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework6.Npgsql, Version=3.2.1.1, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework6.Npgsql.3.2.1.1\lib\net45\EntityFramework6.Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.SIPVoipSDK">
+      <HintPath>..\Interop.SIPVoipSDK.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Npgsql, Version=4.0.7.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.4.0.7\lib\net451\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard1.1\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Deployment">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnaForm.Designer.cs">
+      <DependentUpon>AnaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cagrilarim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cagrilarim.Designer.cs">
+      <DependentUpon>Cagrilarim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CAGRILAR_TBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CagriRaporlari.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CagriRaporlari.Designer.cs">
+      <DependentUpon>CagriRaporlari.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CalismaAktifPeriyotlari.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalismaAktifPeriyotlari.Designer.cs">
+      <DependentUpon>CalismaAktifPeriyotlari.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CalismaCikisiKodlari.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalismaCikisiKodlari.Designer.cs">
+      <DependentUpon>CalismaCikisiKodlari.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CALISMACIKISKODLARI_TBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CalismaKullanicilari.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalismaKullanicilari.Designer.cs">
+      <DependentUpon>CalismaKullanicilari.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Calismalar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calismalar.Designer.cs">
+      <DependentUpon>Calismalar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CALISMALAR_TBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CALISMAPERIYOTLARI_TBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CALISMATAKVIMI_TBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CikisKodlari.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CikisKodlari.Designer.cs">
+      <DependentUpon>CikisKodlari.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CIKISKODLARI_TBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomAppointmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomAppointmentForm.designer.cs">
+      <DependentUpon>CustomAppointmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forum.Designer.cs">
+      <DependentUpon>Forum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FORUMKONULARI_TBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GenelAyarlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GenelAyarlar.Designer.cs">
+      <DependentUpon>GenelAyarlar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GENELAYARLAR_TBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GenelCalismaAraliklari.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GenelCalismaAraliklari.Designer.cs">
+      <DependentUpon>GenelCalismaAraliklari.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GENELTAKVIM_TBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IcerdeCagri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IcerdeCagri.Designer.cs">
+      <DependentUpon>IcerdeCagri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IncomingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IncomingForm.designer.cs">
+      <DependentUpon>IncomingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IstekGonder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IstekGonder.Designer.cs">
+      <DependentUpon>IstekGonder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Istekler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Istekler.Designer.cs">
+      <DependentUpon>Istekler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ISTEKLER_TBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JoinForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JoinForm.designer.cs">
+      <DependentUpon>JoinForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KullaniciCalismalari.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KullaniciCalismalari.Designer.cs">
+      <DependentUpon>KullaniciCalismalari.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KULLANICICALISMALAR_TBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KullaniciIzle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KullaniciIzle.Designer.cs">
+      <DependentUpon>KullaniciIzle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KULLANICILAR_TBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Kullanıcılar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kullanıcılar.Designer.cs">
+      <DependentUpon>Kullanıcılar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="login.Designer.cs">
+      <DependentUpon>login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogList.Designer.cs">
+      <DependentUpon>LogList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LOG_TBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MESAJALICILARI_TBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MesajDuzenle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MesajDuzenle.Designer.cs">
+      <DependentUpon>MesajDuzenle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MESAJLAR_TBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mesajlarım.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mesajlarım.Designer.cs">
+      <DependentUpon>Mesajlarım.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="models\CAGRIDETAYLAR_V.cs" />
+    <Compile Include="models\CALISMACIKISKODLARI_V.cs" />
+    <Compile Include="models\dosyalar.cs" />
+    <Compile Include="models\KULLANICICALISMALAR_V.cs" />
+    <Compile Include="models\KULLANICILAR_V.cs" />
+    <Compile Include="models\LOGLIST_V.cs" />
+    <Compile Include="models\MESAJLARFORUM_V.cs" />
+    <Compile Include="models\MESAJLARTUM_V.cs" />
+    <Compile Include="models\RANDEVUBEKLEYEN_V.cs" />
+    <Compile Include="models\RANDEVUDETAYLAR_V.cs" />
+    <Compile Include="models\SSS_V.cs" />
+    <Compile Include="models\SUAN_V.cs" />
+    <Compile Include="models\TARIHSAAT_V.cs" />
+    <Compile Include="mv_study_name.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mv_tuik_personel.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Periyotlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Periyotlar.Designer.cs">
+      <DependentUpon>Periyotlar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandevuAktar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RandevuAktar.Designer.cs">
+      <DependentUpon>RandevuAktar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RandevuDurumlari.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RandevuDurumlari.Designer.cs">
+      <DependentUpon>RandevuDurumlari.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RandevuEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RandevuEkle.Designer.cs">
+      <DependentUpon>RandevuEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Randevularim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Randevularim.Designer.cs">
+      <DependentUpon>Randevularim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RandevularList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RandevularList.Designer.cs">
+      <DependentUpon>RandevularList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RandevularBekleyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RandevularBekleyen.Designer.cs">
+      <DependentUpon>RandevularBekleyen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RANDEVULAR_TBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RANDEVULISTERENKLERI_TBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Raporlar\PeriyodaGoreCagrilarRaporu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Raporlar\PeriyodaGoreCagrilarRaporu.Designer.cs">
+      <DependentUpon>PeriyodaGoreCagrilarRaporu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RENKLER_TBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ROLLER_TBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RolveYetkiler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RolveYetkiler.designer.cs">
+      <DependentUpon>RolveYetkiler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SesAyarlari.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SesAyarlari.Designer.cs">
+      <DependentUpon>SesAyarlari.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SesKayitlari.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SesKayitlari.Designer.cs">
+      <DependentUpon>SesKayitlari.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SSS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SSS.Designer.cs">
+      <DependentUpon>SSS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SSS_TBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransferAddrForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransferAddrForm.designer.cs">
+      <DependentUpon>TransferAddrForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YETKIACIKLAMALAR_TBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YETKILER_TBL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AnaForm.resx">
+      <DependentUpon>AnaForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cagrilarim.resx">
+      <DependentUpon>Cagrilarim.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CagriRaporlari.resx">
+      <DependentUpon>CagriRaporlari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalismaAktifPeriyotlari.resx">
+      <DependentUpon>CalismaAktifPeriyotlari.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalismaCikisiKodlari.resx">
+      <DependentUpon>CalismaCikisiKodlari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalismaKullanicilari.resx">
+      <DependentUpon>CalismaKullanicilari.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Calismalar.resx">
+      <DependentUpon>Calismalar.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CikisKodlari.resx">
+      <DependentUpon>CikisKodlari.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomAppointmentForm.resx">
+      <DependentUpon>CustomAppointmentForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomAppointmentForm.tr.resx">
+      <DependentUpon>CustomAppointmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forum.resx">
+      <DependentUpon>Forum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GenelAyarlar.resx">
+      <DependentUpon>GenelAyarlar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GenelCalismaAraliklari.resx">
+      <DependentUpon>GenelCalismaAraliklari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IcerdeCagri.resx">
+      <DependentUpon>IcerdeCagri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IncomingForm.resx">
+      <DependentUpon>IncomingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IstekGonder.resx">
+      <DependentUpon>IstekGonder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Istekler.resx">
+      <DependentUpon>Istekler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JoinForm.resx">
+      <DependentUpon>JoinForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KullaniciCalismalari.resx">
+      <DependentUpon>KullaniciCalismalari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KullaniciIzle.resx">
+      <DependentUpon>KullaniciIzle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kullanıcılar.resx">
+      <DependentUpon>Kullanıcılar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="login.resx">
+      <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogList.resx">
+      <DependentUpon>LogList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MesajDuzenle.resx">
+      <DependentUpon>MesajDuzenle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mesajlarım.resx">
+      <DependentUpon>Mesajlarım.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Periyotlar.resx">
+      <DependentUpon>Periyotlar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RandevuAktar.resx">
+      <DependentUpon>RandevuAktar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RandevuDurumlari.resx">
+      <DependentUpon>RandevuDurumlari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RandevuEkle.resx">
+      <DependentUpon>RandevuEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Randevularim.resx">
+      <DependentUpon>Randevularim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RandevularList.resx">
+      <DependentUpon>RandevularList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RandevularBekleyen.resx">
+      <DependentUpon>RandevularBekleyen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raporlar\PeriyodaGoreCagrilarRaporu.resx">
+      <DependentUpon>PeriyodaGoreCagrilarRaporu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RolveYetkiler.resx">
+      <DependentUpon>RolveYetkiler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SesAyarlari.resx">
+      <DependentUpon>SesAyarlari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SesKayitlari.resx">
+      <DependentUpon>SesKayitlari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SSS.resx">
+      <DependentUpon>SSS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransferAddrForm.resx">
+      <DependentUpon>TransferAddrForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="4347_MV3_icon.ico" />
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Phone1.ico" />
+    <None Include="Resources\New-message-32.png" />
+    <None Include="Resources\backward.svg" />
+    <None Include="Resources\backward_32x32.png" />
+    <None Include="Resources\backward_16x16.png" />
+    <None Include="Resources\cancel_32x32.png" />
+    <None Include="Resources\customeremployees_16x16.png" />
+    <None Include="Resources\apply_16x16.png" />
+    <None Include="Resources\apply_16x161.png" />
+    <None Include="Resources\cancel_16x16.png" />
+    <None Include="Resources\bocontact_16x16.png" />
+    <None Include="Resources\cancel_16x161.png" />
+    <None Include="Resources\cancel_32x321.png" />
+    <None Include="Resources\cancel_32x322.png" />
+    <None Include="Resources\apply_32x32.png" />
+    <None Include="Resources\cancel_32x323.png" />
+    <None Include="Resources\cancel_32x324.png" />
+    <None Include="Resources\cancel_32x325.png" />
+    <None Include="Resources\assignto_32x32.png" />
+    <None Include="Resources\assignto_16x16.png" />
+    <None Include="Resources\assignto_32x321.png" />
+    <None Include="Resources\bocontact_32x32.png" />
+    <None Include="Resources\delete_32x32.png" />
+    <None Include="Resources\cancel_32x326.png" />
+    <Content Include="Resources\AlarmClock24.png" />
+    <Content Include="Resources\AlarmClock48.png" />
+    <None Include="Resources\bo_phone.svg" />
+    <None Include="Resources\bocontact_16x161.png" />
+    <None Include="Resources\bocontact_16x162.png" />
+    <None Include="Resources\edit_16x16.png" />
+    <None Include="Resources\deletelist_16x16.png" />
+    <None Include="Resources\bocontact_16x163.png" />
+    <None Include="Resources\convert_16x16.png" />
+    <None Include="Resources\bocontact_16x164.png" />
+    <None Include="Resources\bocontact_32x321.png" />
+    <None Include="Resources\bocontact_16x165.png" />
+    <None Include="Resources\bocontact_16x166.png" />
+    <None Include="Resources\bocontact_16x167.png" />
+    <None Include="Resources\edit_16x161.png" />
+    <None Include="Resources\deletelist_16x161.png" />
+    <None Include="Resources\audiocontent_32x32.png" />
+    <Content Include="Resources\ico_ara.png" />
+    <Content Include="Resources\ico_beklet.png" />
+    <Content Include="Resources\ico_hattaal.ico" />
+    <Content Include="Resources\ico_kapat.png" />
+    <None Include="Resources\undo_16x16.png" />
+    <None Include="Resources\undo_16x161.png" />
+    <None Include="Resources\undo_16x162.png" />
+    <None Include="Resources\undo_16x163.png" />
+    <None Include="Resources\left_16x16.png" />
+    <None Include="Resources\left_16x161.png" />
+    <None Include="Resources\undo_16x164.png" />
+    <None Include="Resources\meeting_16x16.png" />
+    <None Include="Resources\phone3_16x16.png" />
+    <None Include="Resources\phone_16x16.png" />
+    <None Include="Resources\redo_16x16.png" />
+    <None Include="Resources\redo_32x32.png" />
+    <None Include="Resources\switchtimescalesto_32x32.png" />
+    <None Include="Resources\phone_16x161.png" />
+    <None Include="Resources\phone3_16x161.png" />
+    <None Include="Resources\phone_16x162.png" />
+    <None Include="Resources\phone3_16x162.png" />
+    <None Include="Resources\phone_16x163.png" />
+    <None Include="Resources\phone.png" />
+    <Content Include="Resources\New-message-48.png" />
+    <None Include="Resources\refresh_16x16.png" />
+    <Content Include="Stocks.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SesFiles\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

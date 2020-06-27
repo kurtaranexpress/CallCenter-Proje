@@ -1,0 +1,1608 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CallCenterModel.Store" Provider="Npgsql" ProviderManifestToken="11.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CAGRILAR_TBL">
+          <Key>
+            <PropertyRef Name="CAG_ID" />
+          </Key>
+          <Property Name="CAG_ID" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CAG_CAL_ID" Type="int8" />
+          <Property Name="CAG_KUL_ID" Type="int8" />
+          <Property Name="CAG_TARIH" Type="timestamp" />
+          <Property Name="CAG_TELNO" Type="varchar" MaxLength="50" />
+          <Property Name="CAG_ACIKLAMA" Type="varchar" MaxLength="4000" />
+          <Property Name="CAG_CK_ID" Type="int8" />
+          <Property Name="CAG_SANTRALCIKISKODU" Type="varchar" MaxLength="100" />
+          <Property Name="CAG_IST_ID" Type="int8" />
+          <Property Name="CAG_SURE" Type="time" Precision="6" />
+          <Property Name="CAG_BASLAMA" Type="timestamp" />
+          <Property Name="CAG_BITIS" Type="timestamp" />
+          <Property Name="CAG_RAN_ID" Type="int8" />
+        </EntityType>
+        <EntityType Name="CALISMACIKISKODLARI_TBL">
+          <Key>
+            <PropertyRef Name="CCK_ID" />
+          </Key>
+          <Property Name="CCK_ID" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CCK_CAL_ID" Type="int8" />
+          <Property Name="CCK_CK_ID" Type="int8" />
+        </EntityType>
+        <EntityType Name="CALISMALAR_TBL">
+          <Key>
+            <PropertyRef Name="CAL_ID" />
+          </Key>
+          <Property Name="CAL_ID" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CAL_ADI" Type="varchar" MaxLength="1000" />
+          <Property Name="CAL_PERIYOT" Type="varchar" MaxLength="100" />
+          <Property Name="CAL_BASLAMATARIH" Type="timestamp" />
+          <Property Name="CAL_BITISTARIH" Type="timestamp" />
+          <Property Name="CAL_GUNBASLAMASAAT" Type="time" Precision="6" />
+          <Property Name="CAL_GUNBITISSAAT" Type="time" Precision="6" />
+          <Property Name="CAL_RANDEVUARALIK" Type="time" Precision="6" />
+          <Property Name="CAL_MANUELARAMA" Type="bool" />
+          <Property Name="CAL_CALISMAID" Type="varchar" MaxLength="100" />
+          <Property Name="CAL_YIL" Type="date" />
+          <Property Name="CAL_SEC" Type="bool" />
+          <Property Name="CAL_SIL" Type="bool" />
+          <Property Name="CAL_SILME_TARIH" Type="timestamp" />
+          <Property Name="CAL_SILME_KUL_ID" Type="int4" />
+        </EntityType>
+        <EntityType Name="CALISMAPERIYOTLARI_TBL">
+          <Key>
+            <PropertyRef Name="CP_ID" />
+          </Key>
+          <Property Name="CP_CAL_ID" Type="int8" />
+          <Property Name="CP_REFDONEM" Type="int4" />
+          <Property Name="CP_REFAY" Type="int4" />
+          <Property Name="CP_REFHAFTA" Type="int4" />
+          <Property Name="CP_REF_MA_BASLANGIC" Type="timestamp" />
+          <Property Name="CP_REF_MA_BITIS" Type="timestamp" />
+          <Property Name="CP_AKTIF" Type="bool" />
+          <Property Name="CP_BASLAMATARIH" Type="timestamp" />
+          <Property Name="CP_BITISTARIH" Type="timestamp" />
+          <Property Name="CP_REFYIL" Type="date" />
+          <Property Name="CP_ID" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CALISMATAKVIMI_TBL">
+          <Key>
+            <PropertyRef Name="CT_ID" />
+          </Key>
+          <Property Name="CT_ID" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CT_CAL_ID" Type="int8" />
+          <Property Name="CT_ADI" Type="varchar" MaxLength="1000" />
+          <Property Name="CT_BASLAMA" Type="timestamp" />
+          <Property Name="CT_BITIS" Type="timestamp" />
+          <Property Name="CT_CALIS" Type="bool" />
+          <Property Name="CT_SIL" Type="bool" />
+          <Property Name="CT_SILME_TARIH" Type="timestamp" />
+          <Property Name="CT_SILME_KUL_ID" Type="int4" />
+        </EntityType>
+        <EntityType Name="CIKISKODLARI_TBL">
+          <Key>
+            <PropertyRef Name="CK_ID" />
+          </Key>
+          <Property Name="CK_ID" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CK_KOD" Type="varchar" MaxLength="100" />
+          <Property Name="CK_ACIKLAMA" Type="varchar" MaxLength="1000" />
+          <Property Name="CK_SEC" Type="bool" />
+          <Property Name="CK_AKTIF" Type="bool" />
+        </EntityType>
+        <EntityType Name="FORUMKONULARI_TBL">
+          <Key>
+            <PropertyRef Name="FR_ID" />
+          </Key>
+          <Property Name="FR_ID" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FR_OLUSTURMATARIH" Type="timestamp" />
+          <Property Name="FR_ADI" Type="varchar" MaxLength="1000" />
+          <Property Name="FR_ACIKLAMA" Type="varchar" MaxLength="3000" />
+          <Property Name="FR_AKTIF" Type="bool" />
+        </EntityType>
+        <EntityType Name="GENELAYARLAR_TBL">
+          <Key>
+            <PropertyRef Name="GA_ID" />
+          </Key>
+          <Property Name="GA_ID" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GA_GUNBASLAMASAAT" Type="time" Precision="6" />
+          <Property Name="GA_GUNBITISSAAT" Type="time" Precision="6" />
+          <Property Name="GA_CUMARTESICALIS" Type="bool" />
+          <Property Name="GA_PAZARCALIS" Type="bool" />
+          <Property Name="GA_ANASAYFA_BASLIK" Type="varchar" MaxLength="500" />
+          <Property Name="GA_FTP_IP" Type="varchar" MaxLength="1000" />
+          <Property Name="GA_FTP_KULLANICI" Type="varchar" MaxLength="1000" />
+          <Property Name="GA_FTP_SIFRE" Type="varchar" MaxLength="1000" />
+          <Property Name="GA_FTP_DIZIN" Type="varchar" MaxLength="2000" />
+          <Property Name="GA_RANDEVUISTEKSAYFA" Type="varchar" MaxLength="10" />
+          <Property Name="GA_ROLSIRA" Type="int4" />
+          <Property Name="GA_CIHAZIP" Type="varchar" MaxLength="50" />
+          <Property Name="GA_YAKLASANRANDEVUDK" Type="time" Precision="6" />
+          <Property Name="GA_VERSIYON" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="GENELTAKVIM_TBL">
+          <Key>
+            <PropertyRef Name="GT_ID" />
+          </Key>
+          <Property Name="GT_ID" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GT_ADI" Type="varchar" MaxLength="500" />
+          <Property Name="GT_BASLAMA" Type="timestamp" />
+          <Property Name="GT_BITIS" Type="timestamp" />
+          <Property Name="GT_CALIS" Type="bool" />
+        </EntityType>
+        <EntityType Name="ISTEKLER_TBL">
+          <Key>
+            <PropertyRef Name="IST_ID" />
+          </Key>
+          <Property Name="IST_ID" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IST_TARIH" Type="timestamp" />
+          <Property Name="IST_CALISMAID" Type="varchar" MaxLength="100" />
+          <Property Name="IST_KULLANICIID" Type="varchar" MaxLength="100" />
+          <Property Name="IST_BIRIMNO" Type="int8" />
+          <Property Name="IST_ALTBIRIMNO" Type="int8" />
+          <Property Name="IST_REFYIL" Type="int4" />
+          <Property Name="IST_REFDONEM" Type="int4" />
+          <Property Name="IST_REFAY" Type="int4" />
+          <Property Name="IST_REFHAFTA" Type="int4" />
+          <Property Name="IST_TELNO" Type="varchar" MaxLength="50" />
+          <Property Name="IST_IL" Type="varchar" MaxLength="100" />
+          <Property Name="IST_ACIKLAMA" Type="varchar" MaxLength="3000" />
+          <Property Name="IST_RANDEVUTERCIH" Type="varchar" MaxLength="3000" />
+          <Property Name="IST_NEDIR" Type="varchar" MaxLength="10" />
+          <Property Name="IST_OKUNDU" Type="bool" />
+          <Property Name="IST_ICERDEN" Type="bool" />
+          <Property Name="IST_KAPANMAZAMANI" Type="timestamp" />
+        </EntityType>
+        <EntityType Name="KULLANICICALISMALAR_TBL">
+          <Key>
+            <PropertyRef Name="KC_ID" />
+          </Key>
+          <Property Name="KC_ID" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KC_KUL_ID" Type="int8" />
+          <Property Name="KC_CAL_ID" Type="int8" />
+        </EntityType>
+        <EntityType Name="KULLANICILAR_TBL">
+          <Key>
+            <PropertyRef Name="KUL_ID" />
+          </Key>
+          <Property Name="KUL_ID" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KUL_ADI" Type="varchar" MaxLength="500" />
+          <Property Name="KUL_SIFRE" Type="varchar" MaxLength="500" />
+          <Property Name="KUL_SANTRALUSERID" Type="varchar" MaxLength="500" />
+          <Property Name="KUL_SANTRALSIFRE" Type="varchar" MaxLength="500" />
+          <Property Name="KUL_ROL_ID" Type="int8" />
+          <Property Name="KUL_KULLANICIID" Type="varchar" MaxLength="100" />
+          <Property Name="KUL_SEC" Type="bool" />
+          <Property Name="KUL_SIL" Type="bool" />
+          <Property Name="KUL_SILME_TARIH" Type="timestamp" />
+          <Property Name="KUL_SILME_KUL_ID" Type="int4" />
+          <Property Name="KUL_MIKROFONDUZEYI" Type="int4" />
+          <Property Name="KUL_HOPARLORDUZEYI" Type="int4" />
+        </EntityType>
+        <EntityType Name="LOG_TBL">
+          <Key>
+            <PropertyRef Name="LG_ID" />
+          </Key>
+          <Property Name="LG_ID" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LG_TARIH" Type="timestamp" />
+          <Property Name="LG_KUL_ID" Type="int8" />
+          <Property Name="LG_ISLEM" Type="varchar" MaxLength="100" />
+          <Property Name="LG_ISLEMDETAY" Type="varchar" MaxLength="5000" />
+        </EntityType>
+        <EntityType Name="MESAJALICILARI_TBL">
+          <Key>
+            <PropertyRef Name="MA_ID" />
+          </Key>
+          <Property Name="MA_ID" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MA_MSJ_ID" Type="int8" />
+          <Property Name="MA_ALICI_KUL_ID" Type="int8" />
+        </EntityType>
+        <EntityType Name="MESAJLAR_TBL">
+          <Key>
+            <PropertyRef Name="MSJ_ID" />
+          </Key>
+          <Property Name="MSJ_ID" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MSJ_KUL_ID" Type="int8" />
+          <Property Name="MSJ_FR_ID" Type="int8" />
+          <Property Name="MSJ_TARIH" Type="timestamp" />
+          <Property Name="MSJ_MESAJ" Type="varchar" MaxLength="3000" />
+          <Property Name="MSJ_OKUNDU" Type="bool" />
+        </EntityType>
+        <EntityType Name="mv_study_name">
+          <Key>
+            <PropertyRef Name="study_id" />
+          </Key>
+          <Property Name="study_id" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="study_name" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="mv_tuik_personel">
+          <Key>
+            <PropertyRef Name="tc_kimlik_no" />
+          </Key>
+          <Property Name="tc_kimlik_no" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="adsoyad" Type="varchar" MaxLength="50" />
+          <Property Name="dairebsk_adi" Type="varchar" MaxLength="72" />
+          <Property Name="birim_adi" Type="varchar" MaxLength="100" />
+          <Property Name="birim_kod" Type="varchar" MaxLength="10" />
+          <Property Name="kisadaire_bask_kod" Type="varchar" MaxLength="8000" />
+        </EntityType>
+        <EntityType Name="RANDEVULAR_TBL">
+          <Key>
+            <PropertyRef Name="RAN_ID" />
+          </Key>
+          <Property Name="RAN_ID" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RAN_CAL_ID" Type="int8" />
+          <Property Name="RAN_KUL_ID" Type="int8" />
+          <Property Name="RAN_BASLAMATARIH" Type="timestamp" />
+          <Property Name="RAN_BITISTARIH" Type="timestamp" />
+          <Property Name="RAN_TELNO" Type="varchar" MaxLength="50" />
+          <Property Name="RAN_ACIKLAMA" Type="varchar" MaxLength="3000" />
+          <Property Name="RAN_DURUMID" Type="int8" />
+          <Property Name="RAN_IST_ID" Type="int8" />
+          <Property Name="RAN_SEC" Type="bool" />
+          <Property Name="RAN_ACMA" Type="timestamp" />
+          <Property Name="RAN_KAPANMA" Type="timestamp" />
+        </EntityType>
+        <EntityType Name="RANDEVULISTERENKLERI_TBL">
+          <Key>
+            <PropertyRef Name="BR_ID" />
+          </Key>
+          <Property Name="BR_ID" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BR_RENKKODU" Type="varchar" MaxLength="255" />
+          <Property Name="BR_SURE1" Type="time" Precision="6" />
+          <Property Name="BR_SURE2" Type="time" Precision="6" />
+        </EntityType>
+        <EntityType Name="RENKLER_TBL">
+          <Key>
+            <PropertyRef Name="RENK_ID" />
+          </Key>
+          <Property Name="RENK_ID" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RENK_KOD" Type="varchar" MaxLength="255" />
+          <Property Name="RENK_BASLIK" Type="varchar" MaxLength="255" />
+          <Property Name="RENK_HEX" Type="varchar" MaxLength="255" />
+          <Property Name="RENK_GOSTER" Type="varchar" MaxLength="255" />
+          <Property Name="RENK_AKTIF" Type="bool" />
+        </EntityType>
+        <EntityType Name="ROLLER_TBL">
+          <Key>
+            <PropertyRef Name="ROL_ID" />
+          </Key>
+          <Property Name="ROL_ID" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ROL_ADI" Type="varchar" MaxLength="100" />
+          <Property Name="ROL_SIRA" Type="int2" Nullable="false" />
+          <Property Name="ROL_ACIKLAMA" Type="varchar" MaxLength="3000" />
+          <Property Name="ROL_AKTIF" Type="bool" />
+          <Property Name="ROL_ANAROL" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="SSS_TBL">
+          <Key>
+            <PropertyRef Name="SS_ID" />
+          </Key>
+          <Property Name="SS_ID" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SS_CAL_ID" Type="int8" />
+          <Property Name="SS_SORU" Type="varchar" MaxLength="1000" />
+          <Property Name="SS_CEVAP" Type="varchar" MaxLength="3000" />
+          <Property Name="SS_AKTIF" Type="bool" />
+        </EntityType>
+        <EntityType Name="YETKIACIKLAMALAR_TBL">
+          <Key>
+            <PropertyRef Name="YA_ID" />
+          </Key>
+          <Property Name="YA_ID" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="YA_YETKIACIKLAMA" Type="varchar" MaxLength="1000" />
+          <Property Name="YA_YETKI" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="YETKILER_TBL">
+          <Key>
+            <PropertyRef Name="YET_ID" />
+          </Key>
+          <Property Name="YET_ID" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Y_YONETIM" Type="bool" />
+          <Property Name="Y_GENELAYARLAR" Type="bool" />
+          <Property Name="Y_RANDEVUDURUMLARI" Type="bool" />
+          <Property Name="Y_CIKISKODLARI" Type="bool" />
+          <Property Name="Y_GENELTAKVIM" Type="bool" />
+          <Property Name="Y_CALISMALAR" Type="bool" />
+          <Property Name="Y_CALISMAISLEMLERI" Type="bool" />
+          <Property Name="Y_ROLVEYETKILER" Type="bool" />
+          <Property Name="Y_KULLANICILAR" Type="bool" />
+          <Property Name="Y_KULLANICICALISMALARI" Type="bool" />
+          <Property Name="Y_SSS" Type="bool" />
+          <Property Name="Y_FORUMISLEMLERI" Type="bool" />
+          <Property Name="Y_ISTEKEKLEADMIN" Type="bool" />
+          <Property Name="Y_RANDEVUAKTAR" Type="bool" />
+          <Property Name="Y_RAPOR" Type="bool" />
+          <Property Name="Y_RANDEVULAR" Type="bool" />
+          <Property Name="Y_CAGRILAR" Type="bool" />
+          <Property Name="Y_SESKAYDIBUL" Type="bool" />
+          <Property Name="Y_SESDINLE" Type="bool" />
+          <Property Name="Y_SESDISAAKTAR" Type="bool" />
+          <Property Name="Y_ISTEKLER" Type="bool" />
+          <Property Name="Y_LOGLAR" Type="bool" />
+          <Property Name="Y_KULLANICIIZLE" Type="bool" />
+          <Property Name="Y_OPERATOR" Type="bool" />
+          <Property Name="Y_RANDEVULARIM" Type="bool" />
+          <Property Name="Y_CAGRILARIM" Type="bool" />
+          <Property Name="Y_MESAJLARIM" Type="bool" />
+          <Property Name="Y_FORUMKULLAN" Type="bool" />
+          <Property Name="Y_YARDIM" Type="bool" />
+          <Property Name="Y_ISTEKEKLEOPERATOR" Type="bool" />
+          <Property Name="Y_CAGRIYAP" Type="bool" />
+          <Property Name="Y_BEKLEMEYEAL" Type="bool" />
+          <Property Name="Y_AKTAR" Type="bool" />
+          <Property Name="YET_ROLSIRANO" Type="int2" />
+          <Property Name="Y_RANDEVUOLUSTUR" Type="bool" />
+        </EntityType>
+        <Association Name="CAGRILAR_TBL_CAG_IST_ID_fkey">
+          <End Role="ISTEKLER_TBL" Type="Self.ISTEKLER_TBL" Multiplicity="0..1" />
+          <End Role="CAGRILAR_TBL" Type="Self.CAGRILAR_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ISTEKLER_TBL">
+              <PropertyRef Name="IST_ID" />
+            </Principal>
+            <Dependent Role="CAGRILAR_TBL">
+              <PropertyRef Name="CAG_IST_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CALISMACIKISKODLARI_TBL_CCK_CAL_ID_fkey">
+          <End Role="CALISMALAR_TBL" Type="Self.CALISMALAR_TBL" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CALISMACIKISKODLARI_TBL" Type="Self.CALISMACIKISKODLARI_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CALISMALAR_TBL">
+              <PropertyRef Name="CAL_ID" />
+            </Principal>
+            <Dependent Role="CALISMACIKISKODLARI_TBL">
+              <PropertyRef Name="CCK_CAL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CALISMACIKISKODLARI_TBL_CCK_CK_ID_fkey">
+          <End Role="CIKISKODLARI_TBL" Type="Self.CIKISKODLARI_TBL" Multiplicity="0..1" />
+          <End Role="CALISMACIKISKODLARI_TBL" Type="Self.CALISMACIKISKODLARI_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CIKISKODLARI_TBL">
+              <PropertyRef Name="CK_ID" />
+            </Principal>
+            <Dependent Role="CALISMACIKISKODLARI_TBL">
+              <PropertyRef Name="CCK_CK_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CALISMAPERIYOTLARI_TBL_CP_CAL_ID_fkey">
+          <End Role="CALISMALAR_TBL" Type="Self.CALISMALAR_TBL" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CALISMAPERIYOTLARI_TBL" Type="Self.CALISMAPERIYOTLARI_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CALISMALAR_TBL">
+              <PropertyRef Name="CAL_ID" />
+            </Principal>
+            <Dependent Role="CALISMAPERIYOTLARI_TBL">
+              <PropertyRef Name="CP_CAL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CALISMATAKVIMI_TBL_CT_CAL_ID_fkey">
+          <End Role="CALISMALAR_TBL" Type="Self.CALISMALAR_TBL" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CALISMATAKVIMI_TBL" Type="Self.CALISMATAKVIMI_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CALISMALAR_TBL">
+              <PropertyRef Name="CAL_ID" />
+            </Principal>
+            <Dependent Role="CALISMATAKVIMI_TBL">
+              <PropertyRef Name="CT_CAL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="KULLANICICALISMALAR_TBL_KC_CAL_ID_fkey">
+          <End Role="CALISMALAR_TBL" Type="Self.CALISMALAR_TBL" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="KULLANICICALISMALAR_TBL" Type="Self.KULLANICICALISMALAR_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CALISMALAR_TBL">
+              <PropertyRef Name="CAL_ID" />
+            </Principal>
+            <Dependent Role="KULLANICICALISMALAR_TBL">
+              <PropertyRef Name="KC_CAL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="KULLANICICALISMALAR_TBL_KC_KUL_ID_fkey">
+          <End Role="KULLANICILAR_TBL" Type="Self.KULLANICILAR_TBL" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="KULLANICICALISMALAR_TBL" Type="Self.KULLANICICALISMALAR_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KULLANICILAR_TBL">
+              <PropertyRef Name="KUL_ID" />
+            </Principal>
+            <Dependent Role="KULLANICICALISMALAR_TBL">
+              <PropertyRef Name="KC_KUL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="KULLANICILAR_TBL_KUL_ROL_ID_fkey">
+          <End Role="ROLLER_TBL" Type="Self.ROLLER_TBL" Multiplicity="0..1" />
+          <End Role="KULLANICILAR_TBL" Type="Self.KULLANICILAR_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLLER_TBL">
+              <PropertyRef Name="ROL_ID" />
+            </Principal>
+            <Dependent Role="KULLANICILAR_TBL">
+              <PropertyRef Name="KUL_ROL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MESAJALICILARI_TBL_MA_MSJ_ID_fkey">
+          <End Role="MESAJLAR_TBL" Type="Self.MESAJLAR_TBL" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MESAJALICILARI_TBL" Type="Self.MESAJALICILARI_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MESAJLAR_TBL">
+              <PropertyRef Name="MSJ_ID" />
+            </Principal>
+            <Dependent Role="MESAJALICILARI_TBL">
+              <PropertyRef Name="MA_MSJ_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MESAJLAR_TBL_MSJ_FR_ID_fkey">
+          <End Role="FORUMKONULARI_TBL" Type="Self.FORUMKONULARI_TBL" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MESAJLAR_TBL" Type="Self.MESAJLAR_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FORUMKONULARI_TBL">
+              <PropertyRef Name="FR_ID" />
+            </Principal>
+            <Dependent Role="MESAJLAR_TBL">
+              <PropertyRef Name="MSJ_FR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RANDEVULAR_TBL_RAN_CAL_ID_fkey">
+          <End Role="CALISMALAR_TBL" Type="Self.CALISMALAR_TBL" Multiplicity="0..1" />
+          <End Role="RANDEVULAR_TBL" Type="Self.RANDEVULAR_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CALISMALAR_TBL">
+              <PropertyRef Name="CAL_ID" />
+            </Principal>
+            <Dependent Role="RANDEVULAR_TBL">
+              <PropertyRef Name="RAN_CAL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RANDEVULAR_TBL_RAN_DURUMID_fkey">
+          <End Role="RENKLER_TBL" Type="Self.RENKLER_TBL" Multiplicity="0..1" />
+          <End Role="RANDEVULAR_TBL" Type="Self.RANDEVULAR_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RENKLER_TBL">
+              <PropertyRef Name="RENK_ID" />
+            </Principal>
+            <Dependent Role="RANDEVULAR_TBL">
+              <PropertyRef Name="RAN_DURUMID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RANDEVULAR_TBL_RAN_IST_ID_fkey">
+          <End Role="ISTEKLER_TBL" Type="Self.ISTEKLER_TBL" Multiplicity="0..1" />
+          <End Role="RANDEVULAR_TBL" Type="Self.RANDEVULAR_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ISTEKLER_TBL">
+              <PropertyRef Name="IST_ID" />
+            </Principal>
+            <Dependent Role="RANDEVULAR_TBL">
+              <PropertyRef Name="RAN_IST_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RANDEVULAR_TBL_RAN_KUL_ID_fkey">
+          <End Role="KULLANICILAR_TBL" Type="Self.KULLANICILAR_TBL" Multiplicity="0..1" />
+          <End Role="RANDEVULAR_TBL" Type="Self.RANDEVULAR_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KULLANICILAR_TBL">
+              <PropertyRef Name="KUL_ID" />
+            </Principal>
+            <Dependent Role="RANDEVULAR_TBL">
+              <PropertyRef Name="RAN_KUL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CallCenterModelStoreContainer">
+          <EntitySet Name="CAGRILAR_TBL" EntityType="Self.CAGRILAR_TBL" Schema="public" store:Type="Tables" />
+          <EntitySet Name="CALISMACIKISKODLARI_TBL" EntityType="Self.CALISMACIKISKODLARI_TBL" Schema="public" store:Type="Tables" />
+          <EntitySet Name="CALISMALAR_TBL" EntityType="Self.CALISMALAR_TBL" Schema="public" store:Type="Tables" />
+          <EntitySet Name="CALISMAPERIYOTLARI_TBL" EntityType="Self.CALISMAPERIYOTLARI_TBL" Schema="public" store:Type="Tables" />
+          <EntitySet Name="CALISMATAKVIMI_TBL" EntityType="Self.CALISMATAKVIMI_TBL" Schema="public" store:Type="Tables" />
+          <EntitySet Name="CIKISKODLARI_TBL" EntityType="Self.CIKISKODLARI_TBL" Schema="public" store:Type="Tables" />
+          <EntitySet Name="FORUMKONULARI_TBL" EntityType="Self.FORUMKONULARI_TBL" Schema="public" store:Type="Tables" />
+          <EntitySet Name="GENELAYARLAR_TBL" EntityType="Self.GENELAYARLAR_TBL" Schema="public" store:Type="Tables" />
+          <EntitySet Name="GENELTAKVIM_TBL" EntityType="Self.GENELTAKVIM_TBL" Schema="public" store:Type="Tables" />
+          <EntitySet Name="ISTEKLER_TBL" EntityType="Self.ISTEKLER_TBL" Schema="public" store:Type="Tables" />
+          <EntitySet Name="KULLANICICALISMALAR_TBL" EntityType="Self.KULLANICICALISMALAR_TBL" Schema="public" store:Type="Tables" />
+          <EntitySet Name="KULLANICILAR_TBL" EntityType="Self.KULLANICILAR_TBL" Schema="public" store:Type="Tables" />
+          <EntitySet Name="LOG_TBL" EntityType="Self.LOG_TBL" Schema="public" store:Type="Tables" />
+          <EntitySet Name="MESAJALICILARI_TBL" EntityType="Self.MESAJALICILARI_TBL" Schema="public" store:Type="Tables" />
+          <EntitySet Name="MESAJLAR_TBL" EntityType="Self.MESAJLAR_TBL" Schema="public" store:Type="Tables" />
+          <EntitySet Name="mv_study_name" EntityType="Self.mv_study_name" Schema="public" store:Type="Tables" />
+          <EntitySet Name="mv_tuik_personel" EntityType="Self.mv_tuik_personel" Schema="public" store:Type="Tables" />
+          <EntitySet Name="RANDEVULAR_TBL" EntityType="Self.RANDEVULAR_TBL" Schema="public" store:Type="Tables" />
+          <EntitySet Name="RANDEVULISTERENKLERI_TBL" EntityType="Self.RANDEVULISTERENKLERI_TBL" Schema="public" store:Type="Tables" />
+          <EntitySet Name="RENKLER_TBL" EntityType="Self.RENKLER_TBL" Schema="public" store:Type="Tables" />
+          <EntitySet Name="ROLLER_TBL" EntityType="Self.ROLLER_TBL" Schema="public" store:Type="Tables" />
+          <EntitySet Name="SSS_TBL" EntityType="Self.SSS_TBL" Schema="public" store:Type="Tables" />
+          <EntitySet Name="YETKIACIKLAMALAR_TBL" EntityType="Self.YETKIACIKLAMALAR_TBL" Schema="public" store:Type="Tables" />
+          <EntitySet Name="YETKILER_TBL" EntityType="Self.YETKILER_TBL" Schema="public" store:Type="Tables" />
+          <AssociationSet Name="CAGRILAR_TBL_CAG_IST_ID_fkey" Association="Self.CAGRILAR_TBL_CAG_IST_ID_fkey">
+            <End Role="ISTEKLER_TBL" EntitySet="ISTEKLER_TBL" />
+            <End Role="CAGRILAR_TBL" EntitySet="CAGRILAR_TBL" />
+          </AssociationSet>
+          <AssociationSet Name="CALISMACIKISKODLARI_TBL_CCK_CAL_ID_fkey" Association="Self.CALISMACIKISKODLARI_TBL_CCK_CAL_ID_fkey">
+            <End Role="CALISMALAR_TBL" EntitySet="CALISMALAR_TBL" />
+            <End Role="CALISMACIKISKODLARI_TBL" EntitySet="CALISMACIKISKODLARI_TBL" />
+          </AssociationSet>
+          <AssociationSet Name="CALISMACIKISKODLARI_TBL_CCK_CK_ID_fkey" Association="Self.CALISMACIKISKODLARI_TBL_CCK_CK_ID_fkey">
+            <End Role="CIKISKODLARI_TBL" EntitySet="CIKISKODLARI_TBL" />
+            <End Role="CALISMACIKISKODLARI_TBL" EntitySet="CALISMACIKISKODLARI_TBL" />
+          </AssociationSet>
+          <AssociationSet Name="CALISMAPERIYOTLARI_TBL_CP_CAL_ID_fkey" Association="Self.CALISMAPERIYOTLARI_TBL_CP_CAL_ID_fkey">
+            <End Role="CALISMALAR_TBL" EntitySet="CALISMALAR_TBL" />
+            <End Role="CALISMAPERIYOTLARI_TBL" EntitySet="CALISMAPERIYOTLARI_TBL" />
+          </AssociationSet>
+          <AssociationSet Name="CALISMATAKVIMI_TBL_CT_CAL_ID_fkey" Association="Self.CALISMATAKVIMI_TBL_CT_CAL_ID_fkey">
+            <End Role="CALISMALAR_TBL" EntitySet="CALISMALAR_TBL" />
+            <End Role="CALISMATAKVIMI_TBL" EntitySet="CALISMATAKVIMI_TBL" />
+          </AssociationSet>
+          <AssociationSet Name="KULLANICICALISMALAR_TBL_KC_CAL_ID_fkey" Association="Self.KULLANICICALISMALAR_TBL_KC_CAL_ID_fkey">
+            <End Role="CALISMALAR_TBL" EntitySet="CALISMALAR_TBL" />
+            <End Role="KULLANICICALISMALAR_TBL" EntitySet="KULLANICICALISMALAR_TBL" />
+          </AssociationSet>
+          <AssociationSet Name="KULLANICICALISMALAR_TBL_KC_KUL_ID_fkey" Association="Self.KULLANICICALISMALAR_TBL_KC_KUL_ID_fkey">
+            <End Role="KULLANICILAR_TBL" EntitySet="KULLANICILAR_TBL" />
+            <End Role="KULLANICICALISMALAR_TBL" EntitySet="KULLANICICALISMALAR_TBL" />
+          </AssociationSet>
+          <AssociationSet Name="KULLANICILAR_TBL_KUL_ROL_ID_fkey" Association="Self.KULLANICILAR_TBL_KUL_ROL_ID_fkey">
+            <End Role="ROLLER_TBL" EntitySet="ROLLER_TBL" />
+            <End Role="KULLANICILAR_TBL" EntitySet="KULLANICILAR_TBL" />
+          </AssociationSet>
+          <AssociationSet Name="MESAJALICILARI_TBL_MA_MSJ_ID_fkey" Association="Self.MESAJALICILARI_TBL_MA_MSJ_ID_fkey">
+            <End Role="MESAJLAR_TBL" EntitySet="MESAJLAR_TBL" />
+            <End Role="MESAJALICILARI_TBL" EntitySet="MESAJALICILARI_TBL" />
+          </AssociationSet>
+          <AssociationSet Name="MESAJLAR_TBL_MSJ_FR_ID_fkey" Association="Self.MESAJLAR_TBL_MSJ_FR_ID_fkey">
+            <End Role="FORUMKONULARI_TBL" EntitySet="FORUMKONULARI_TBL" />
+            <End Role="MESAJLAR_TBL" EntitySet="MESAJLAR_TBL" />
+          </AssociationSet>
+          <AssociationSet Name="RANDEVULAR_TBL_RAN_CAL_ID_fkey" Association="Self.RANDEVULAR_TBL_RAN_CAL_ID_fkey">
+            <End Role="CALISMALAR_TBL" EntitySet="CALISMALAR_TBL" />
+            <End Role="RANDEVULAR_TBL" EntitySet="RANDEVULAR_TBL" />
+          </AssociationSet>
+          <AssociationSet Name="RANDEVULAR_TBL_RAN_DURUMID_fkey" Association="Self.RANDEVULAR_TBL_RAN_DURUMID_fkey">
+            <End Role="RENKLER_TBL" EntitySet="RENKLER_TBL" />
+            <End Role="RANDEVULAR_TBL" EntitySet="RANDEVULAR_TBL" />
+          </AssociationSet>
+          <AssociationSet Name="RANDEVULAR_TBL_RAN_IST_ID_fkey" Association="Self.RANDEVULAR_TBL_RAN_IST_ID_fkey">
+            <End Role="ISTEKLER_TBL" EntitySet="ISTEKLER_TBL" />
+            <End Role="RANDEVULAR_TBL" EntitySet="RANDEVULAR_TBL" />
+          </AssociationSet>
+          <AssociationSet Name="RANDEVULAR_TBL_RAN_KUL_ID_fkey" Association="Self.RANDEVULAR_TBL_RAN_KUL_ID_fkey">
+            <End Role="KULLANICILAR_TBL" EntitySet="KULLANICILAR_TBL" />
+            <End Role="RANDEVULAR_TBL" EntitySet="RANDEVULAR_TBL" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CallCenterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CALISMACIKISKODLARI_TBL">
+          <Key>
+            <PropertyRef Name="CCK_ID" />
+          </Key>
+          <Property Name="CCK_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CCK_CAL_ID" Type="Int64" />
+          <Property Name="CCK_CK_ID" Type="Int64" />
+          <NavigationProperty Name="CALISMALAR_TBL" Relationship="Self.CALISMACIKISKODLARI_TBL_CCK_CAL_ID_fkey" FromRole="CALISMACIKISKODLARI_TBL" ToRole="CALISMALAR_TBL" />
+          <NavigationProperty Name="CIKISKODLARI_TBL" Relationship="Self.CALISMACIKISKODLARI_TBL_CCK_CK_ID_fkey" FromRole="CALISMACIKISKODLARI_TBL" ToRole="CIKISKODLARI_TBL" />
+        </EntityType>
+        <EntityType Name="CALISMALAR_TBL">
+          <Key>
+            <PropertyRef Name="CAL_ID" />
+          </Key>
+          <Property Name="CAL_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CAL_ADI" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="CAL_PERIYOT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CAL_BASLAMATARIH" Type="DateTime" Precision="6" />
+          <Property Name="CAL_BITISTARIH" Type="DateTime" Precision="6" />
+          <Property Name="CAL_GUNBASLAMASAAT" Type="Time" Precision="6" />
+          <Property Name="CAL_GUNBITISSAAT" Type="Time" Precision="6" />
+          <Property Name="CAL_RANDEVUARALIK" Type="Time" Precision="6" />
+          <Property Name="CAL_MANUELARAMA" Type="Boolean" />
+          <Property Name="CAL_CALISMAID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CAL_YIL" Type="DateTime" Precision="0" />
+          <Property Name="CAL_SEC" Type="Boolean" />
+          <Property Name="CAL_SIL" Type="Boolean" />
+          <Property Name="CAL_SILME_TARIH" Type="DateTime" Precision="6" />
+          <Property Name="CAL_SILME_KUL_ID" Type="Int32" />
+          <NavigationProperty Name="CALISMACIKISKODLARI_TBL" Relationship="Self.CALISMACIKISKODLARI_TBL_CCK_CAL_ID_fkey" FromRole="CALISMALAR_TBL" ToRole="CALISMACIKISKODLARI_TBL" />
+          <NavigationProperty Name="CALISMAPERIYOTLARI_TBL" Relationship="Self.CALISMAPERIYOTLARI_TBL_CP_CAL_ID_fkey" FromRole="CALISMALAR_TBL" ToRole="CALISMAPERIYOTLARI_TBL" />
+          <NavigationProperty Name="CALISMATAKVIMI_TBL" Relationship="Self.CALISMATAKVIMI_TBL_CT_CAL_ID_fkey" FromRole="CALISMALAR_TBL" ToRole="CALISMATAKVIMI_TBL" />
+          <NavigationProperty Name="KULLANICICALISMALAR_TBL" Relationship="Self.KULLANICICALISMALAR_TBL_KC_CAL_ID_fkey" FromRole="CALISMALAR_TBL" ToRole="KULLANICICALISMALAR_TBL" />
+          <NavigationProperty Name="RANDEVULAR_TBL" Relationship="CallCenterModel.RANDEVULAR_TBL_RAN_CAL_ID_fkey" FromRole="CALISMALAR_TBL" ToRole="RANDEVULAR_TBL" />
+        </EntityType>
+        <EntityType Name="CALISMAPERIYOTLARI_TBL">
+          <Key>
+            <PropertyRef Name="CP_ID" />
+          </Key>
+          <Property Name="CP_CAL_ID" Type="Int64" />
+          <Property Name="CP_REFDONEM" Type="Int32" />
+          <Property Name="CP_REFAY" Type="Int32" />
+          <Property Name="CP_REFHAFTA" Type="Int32" />
+          <Property Name="CP_REF_MA_BASLANGIC" Type="DateTime" Precision="6" />
+          <Property Name="CP_REF_MA_BITIS" Type="DateTime" Precision="6" />
+          <Property Name="CP_AKTIF" Type="Boolean" />
+          <Property Name="CP_BASLAMATARIH" Type="DateTime" Precision="6" />
+          <Property Name="CP_BITISTARIH" Type="DateTime" Precision="6" />
+          <Property Name="CP_REFYIL" Type="DateTime" Precision="0" />
+          <Property Name="CP_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="CALISMALAR_TBL" Relationship="Self.CALISMAPERIYOTLARI_TBL_CP_CAL_ID_fkey" FromRole="CALISMAPERIYOTLARI_TBL" ToRole="CALISMALAR_TBL" />
+        </EntityType>
+        <EntityType Name="CALISMATAKVIMI_TBL">
+          <Key>
+            <PropertyRef Name="CT_ID" />
+          </Key>
+          <Property Name="CT_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CT_CAL_ID" Type="Int64" />
+          <Property Name="CT_ADI" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="CT_BASLAMA" Type="DateTime" Precision="6" />
+          <Property Name="CT_BITIS" Type="DateTime" Precision="6" />
+          <Property Name="CT_CALIS" Type="Boolean" />
+          <Property Name="CT_SIL" Type="Boolean" />
+          <Property Name="CT_SILME_TARIH" Type="DateTime" Precision="6" />
+          <Property Name="CT_SILME_KUL_ID" Type="Int32" />
+          <NavigationProperty Name="CALISMALAR_TBL" Relationship="Self.CALISMATAKVIMI_TBL_CT_CAL_ID_fkey" FromRole="CALISMATAKVIMI_TBL" ToRole="CALISMALAR_TBL" />
+        </EntityType>
+        <EntityType Name="CIKISKODLARI_TBL">
+          <Key>
+            <PropertyRef Name="CK_ID" />
+          </Key>
+          <Property Name="CK_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CK_KOD" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CK_ACIKLAMA" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="CK_SEC" Type="Boolean" />
+          <Property Name="CK_AKTIF" Type="Boolean" />
+          <NavigationProperty Name="CALISMACIKISKODLARI_TBL" Relationship="Self.CALISMACIKISKODLARI_TBL_CCK_CK_ID_fkey" FromRole="CIKISKODLARI_TBL" ToRole="CALISMACIKISKODLARI_TBL" />
+        </EntityType>
+        <EntityType Name="FORUMKONULARI_TBL">
+          <Key>
+            <PropertyRef Name="FR_ID" />
+          </Key>
+          <Property Name="FR_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FR_OLUSTURMATARIH" Type="DateTime" Precision="6" />
+          <Property Name="FR_ADI" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="FR_ACIKLAMA" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="FR_AKTIF" Type="Boolean" />
+          <NavigationProperty Name="MESAJLAR_TBL" Relationship="Self.MESAJLAR_TBL_MSJ_FR_ID_fkey" FromRole="FORUMKONULARI_TBL" ToRole="MESAJLAR_TBL" />
+        </EntityType>
+        <EntityType Name="GENELTAKVIM_TBL">
+          <Key>
+            <PropertyRef Name="GT_ID" />
+          </Key>
+          <Property Name="GT_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GT_ADI" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="GT_BASLAMA" Type="DateTime" Precision="6" />
+          <Property Name="GT_BITIS" Type="DateTime" Precision="6" />
+          <Property Name="GT_CALIS" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="KULLANICICALISMALAR_TBL">
+          <Key>
+            <PropertyRef Name="KC_ID" />
+          </Key>
+          <Property Name="KC_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KC_KUL_ID" Type="Int64" />
+          <Property Name="KC_CAL_ID" Type="Int64" />
+          <NavigationProperty Name="CALISMALAR_TBL" Relationship="Self.KULLANICICALISMALAR_TBL_KC_CAL_ID_fkey" FromRole="KULLANICICALISMALAR_TBL" ToRole="CALISMALAR_TBL" />
+          <NavigationProperty Name="KULLANICILAR_TBL" Relationship="CallCenterModel.KULLANICICALISMALAR_TBL_KC_KUL_ID_fkey" FromRole="KULLANICICALISMALAR_TBL" ToRole="KULLANICILAR_TBL" />
+        </EntityType>
+        <EntityType Name="MESAJALICILARI_TBL">
+          <Key>
+            <PropertyRef Name="MA_ID" />
+          </Key>
+          <Property Name="MA_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MA_MSJ_ID" Type="Int64" />
+          <Property Name="MA_ALICI_KUL_ID" Type="Int64" />
+          <NavigationProperty Name="MESAJLAR_TBL" Relationship="Self.MESAJALICILARI_TBL_MA_MSJ_ID_fkey" FromRole="MESAJALICILARI_TBL" ToRole="MESAJLAR_TBL" />
+        </EntityType>
+        <EntityType Name="MESAJLAR_TBL">
+          <Key>
+            <PropertyRef Name="MSJ_ID" />
+          </Key>
+          <Property Name="MSJ_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MSJ_KUL_ID" Type="Int64" />
+          <Property Name="MSJ_FR_ID" Type="Int64" />
+          <Property Name="MSJ_TARIH" Type="DateTime" Precision="6" />
+          <Property Name="MSJ_MESAJ" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="MSJ_OKUNDU" Type="Boolean" />
+          <NavigationProperty Name="FORUMKONULARI_TBL" Relationship="Self.MESAJLAR_TBL_MSJ_FR_ID_fkey" FromRole="MESAJLAR_TBL" ToRole="FORUMKONULARI_TBL" />
+          <NavigationProperty Name="MESAJALICILARI_TBL" Relationship="Self.MESAJALICILARI_TBL_MA_MSJ_ID_fkey" FromRole="MESAJLAR_TBL" ToRole="MESAJALICILARI_TBL" />
+        </EntityType>
+        <EntityType Name="RENKLER_TBL">
+          <Key>
+            <PropertyRef Name="RENK_ID" />
+          </Key>
+          <Property Name="RENK_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RENK_KOD" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="RENK_BASLIK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="RENK_HEX" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="RENK_GOSTER" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="RENK_AKTIF" Type="Boolean" />
+          <NavigationProperty Name="RANDEVULAR_TBL" Relationship="CallCenterModel.RANDEVULAR_TBL_RAN_DURUMID_fkey" FromRole="RENKLER_TBL" ToRole="RANDEVULAR_TBL" />
+        </EntityType>
+        <EntityType Name="ROLLER_TBL">
+          <Key>
+            <PropertyRef Name="ROL_ID" />
+          </Key>
+          <Property Name="ROL_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ROL_ADI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ROL_SIRA" Type="Int16" Nullable="false" />
+          <Property Name="ROL_ACIKLAMA" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="ROL_AKTIF" Type="Boolean" />
+          <NavigationProperty Name="KULLANICILAR_TBL" Relationship="CallCenterModel.KULLANICILAR_TBL_KUL_ROL_ID_fkey" FromRole="ROLLER_TBL" ToRole="KULLANICILAR_TBL" />
+          <Property Name="ROL_ANAROL" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SSS_TBL">
+          <Key>
+            <PropertyRef Name="SS_ID" />
+          </Key>
+          <Property Name="SS_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SS_CAL_ID" Type="Int64" />
+          <Property Name="SS_SORU" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="SS_CEVAP" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="SS_AKTIF" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="YETKIACIKLAMALAR_TBL">
+          <Key>
+            <PropertyRef Name="YA_ID" />
+          </Key>
+          <Property Name="YA_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="YA_YETKIACIKLAMA" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="YA_YETKI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="CALISMACIKISKODLARI_TBL_CCK_CAL_ID_fkey">
+          <End Role="CALISMALAR_TBL" Type="Self.CALISMALAR_TBL" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CALISMACIKISKODLARI_TBL" Type="Self.CALISMACIKISKODLARI_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CALISMALAR_TBL">
+              <PropertyRef Name="CAL_ID" />
+            </Principal>
+            <Dependent Role="CALISMACIKISKODLARI_TBL">
+              <PropertyRef Name="CCK_CAL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CALISMACIKISKODLARI_TBL_CCK_CK_ID_fkey">
+          <End Role="CIKISKODLARI_TBL" Type="Self.CIKISKODLARI_TBL" Multiplicity="0..1" />
+          <End Role="CALISMACIKISKODLARI_TBL" Type="Self.CALISMACIKISKODLARI_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CIKISKODLARI_TBL">
+              <PropertyRef Name="CK_ID" />
+            </Principal>
+            <Dependent Role="CALISMACIKISKODLARI_TBL">
+              <PropertyRef Name="CCK_CK_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CALISMAPERIYOTLARI_TBL_CP_CAL_ID_fkey">
+          <End Role="CALISMALAR_TBL" Type="Self.CALISMALAR_TBL" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CALISMAPERIYOTLARI_TBL" Type="Self.CALISMAPERIYOTLARI_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CALISMALAR_TBL">
+              <PropertyRef Name="CAL_ID" />
+            </Principal>
+            <Dependent Role="CALISMAPERIYOTLARI_TBL">
+              <PropertyRef Name="CP_CAL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CALISMATAKVIMI_TBL_CT_CAL_ID_fkey">
+          <End Role="CALISMALAR_TBL" Type="Self.CALISMALAR_TBL" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CALISMATAKVIMI_TBL" Type="Self.CALISMATAKVIMI_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CALISMALAR_TBL">
+              <PropertyRef Name="CAL_ID" />
+            </Principal>
+            <Dependent Role="CALISMATAKVIMI_TBL">
+              <PropertyRef Name="CT_CAL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="KULLANICICALISMALAR_TBL_KC_CAL_ID_fkey">
+          <End Role="CALISMALAR_TBL" Type="Self.CALISMALAR_TBL" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="KULLANICICALISMALAR_TBL" Type="Self.KULLANICICALISMALAR_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CALISMALAR_TBL">
+              <PropertyRef Name="CAL_ID" />
+            </Principal>
+            <Dependent Role="KULLANICICALISMALAR_TBL">
+              <PropertyRef Name="KC_CAL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MESAJLAR_TBL_MSJ_FR_ID_fkey">
+          <End Role="FORUMKONULARI_TBL" Type="Self.FORUMKONULARI_TBL" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MESAJLAR_TBL" Type="Self.MESAJLAR_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FORUMKONULARI_TBL">
+              <PropertyRef Name="FR_ID" />
+            </Principal>
+            <Dependent Role="MESAJLAR_TBL">
+              <PropertyRef Name="MSJ_FR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MESAJALICILARI_TBL_MA_MSJ_ID_fkey">
+          <End Role="MESAJLAR_TBL" Type="Self.MESAJLAR_TBL" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MESAJALICILARI_TBL" Type="Self.MESAJALICILARI_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MESAJLAR_TBL">
+              <PropertyRef Name="MSJ_ID" />
+            </Principal>
+            <Dependent Role="MESAJALICILARI_TBL">
+              <PropertyRef Name="MA_MSJ_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CallCenterEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CALISMACIKISKODLARI_TBL" EntityType="Self.CALISMACIKISKODLARI_TBL" />
+          <EntitySet Name="CALISMALAR_TBL" EntityType="Self.CALISMALAR_TBL" />
+          <EntitySet Name="CALISMAPERIYOTLARI_TBL" EntityType="Self.CALISMAPERIYOTLARI_TBL" />
+          <EntitySet Name="CALISMATAKVIMI_TBL" EntityType="Self.CALISMATAKVIMI_TBL" />
+          <EntitySet Name="CIKISKODLARI_TBL" EntityType="Self.CIKISKODLARI_TBL" />
+          <EntitySet Name="FORUMKONULARI_TBL" EntityType="Self.FORUMKONULARI_TBL" />
+          <EntitySet Name="GENELTAKVIM_TBL" EntityType="Self.GENELTAKVIM_TBL" />
+          <EntitySet Name="KULLANICICALISMALAR_TBL" EntityType="Self.KULLANICICALISMALAR_TBL" />
+          <EntitySet Name="MESAJALICILARI_TBL" EntityType="Self.MESAJALICILARI_TBL" />
+          <EntitySet Name="MESAJLAR_TBL" EntityType="Self.MESAJLAR_TBL" />
+          <EntitySet Name="RENKLER_TBL" EntityType="Self.RENKLER_TBL" />
+          <EntitySet Name="ROLLER_TBL" EntityType="Self.ROLLER_TBL" />
+          <EntitySet Name="SSS_TBL" EntityType="Self.SSS_TBL" />
+          <EntitySet Name="YETKIACIKLAMALAR_TBL" EntityType="Self.YETKIACIKLAMALAR_TBL" />
+          <AssociationSet Name="CALISMACIKISKODLARI_TBL_CCK_CAL_ID_fkey" Association="Self.CALISMACIKISKODLARI_TBL_CCK_CAL_ID_fkey">
+            <End Role="CALISMALAR_TBL" EntitySet="CALISMALAR_TBL" />
+            <End Role="CALISMACIKISKODLARI_TBL" EntitySet="CALISMACIKISKODLARI_TBL" />
+          </AssociationSet>
+          <AssociationSet Name="CALISMACIKISKODLARI_TBL_CCK_CK_ID_fkey" Association="Self.CALISMACIKISKODLARI_TBL_CCK_CK_ID_fkey">
+            <End Role="CIKISKODLARI_TBL" EntitySet="CIKISKODLARI_TBL" />
+            <End Role="CALISMACIKISKODLARI_TBL" EntitySet="CALISMACIKISKODLARI_TBL" />
+          </AssociationSet>
+          <AssociationSet Name="CALISMAPERIYOTLARI_TBL_CP_CAL_ID_fkey" Association="Self.CALISMAPERIYOTLARI_TBL_CP_CAL_ID_fkey">
+            <End Role="CALISMALAR_TBL" EntitySet="CALISMALAR_TBL" />
+            <End Role="CALISMAPERIYOTLARI_TBL" EntitySet="CALISMAPERIYOTLARI_TBL" />
+          </AssociationSet>
+          <AssociationSet Name="CALISMATAKVIMI_TBL_CT_CAL_ID_fkey" Association="Self.CALISMATAKVIMI_TBL_CT_CAL_ID_fkey">
+            <End Role="CALISMALAR_TBL" EntitySet="CALISMALAR_TBL" />
+            <End Role="CALISMATAKVIMI_TBL" EntitySet="CALISMATAKVIMI_TBL" />
+          </AssociationSet>
+          <AssociationSet Name="KULLANICICALISMALAR_TBL_KC_CAL_ID_fkey" Association="Self.KULLANICICALISMALAR_TBL_KC_CAL_ID_fkey">
+            <End Role="CALISMALAR_TBL" EntitySet="CALISMALAR_TBL" />
+            <End Role="KULLANICICALISMALAR_TBL" EntitySet="KULLANICICALISMALAR_TBL" />
+          </AssociationSet>
+          <AssociationSet Name="MESAJLAR_TBL_MSJ_FR_ID_fkey" Association="Self.MESAJLAR_TBL_MSJ_FR_ID_fkey">
+            <End Role="FORUMKONULARI_TBL" EntitySet="FORUMKONULARI_TBL" />
+            <End Role="MESAJLAR_TBL" EntitySet="MESAJLAR_TBL" />
+          </AssociationSet>
+          <AssociationSet Name="MESAJALICILARI_TBL_MA_MSJ_ID_fkey" Association="Self.MESAJALICILARI_TBL_MA_MSJ_ID_fkey">
+            <End Role="MESAJLAR_TBL" EntitySet="MESAJLAR_TBL" />
+            <End Role="MESAJALICILARI_TBL" EntitySet="MESAJALICILARI_TBL" />
+          </AssociationSet>
+          <EntitySet Name="YETKILER_TBL" EntityType="CallCenterModel.YETKILER_TBL" />
+          <EntitySet Name="KULLANICILAR_TBL" EntityType="CallCenterModel.KULLANICILAR_TBL" />
+          <AssociationSet Name="KULLANICICALISMALAR_TBL_KC_KUL_ID_fkey" Association="CallCenterModel.KULLANICICALISMALAR_TBL_KC_KUL_ID_fkey">
+            <End Role="KULLANICILAR_TBL" EntitySet="KULLANICILAR_TBL" />
+            <End Role="KULLANICICALISMALAR_TBL" EntitySet="KULLANICICALISMALAR_TBL" />
+          </AssociationSet>
+          <AssociationSet Name="KULLANICILAR_TBL_KUL_ROL_ID_fkey" Association="CallCenterModel.KULLANICILAR_TBL_KUL_ROL_ID_fkey">
+            <End Role="ROLLER_TBL" EntitySet="ROLLER_TBL" />
+            <End Role="KULLANICILAR_TBL" EntitySet="KULLANICILAR_TBL" />
+          </AssociationSet>
+          <EntitySet Name="ISTEKLER_TBL" EntityType="CallCenterModel.ISTEKLER_TBL" />
+          <EntitySet Name="CAGRILAR_TBL" EntityType="CallCenterModel.CAGRILAR_TBL" />
+          <EntitySet Name="RANDEVULAR_TBL" EntityType="CallCenterModel.RANDEVULAR_TBL" />
+          <AssociationSet Name="CAGRILAR_TBL_CAG_IST_ID_fkey" Association="CallCenterModel.CAGRILAR_TBL_CAG_IST_ID_fkey">
+            <End Role="ISTEKLER_TBL" EntitySet="ISTEKLER_TBL" />
+            <End Role="CAGRILAR_TBL" EntitySet="CAGRILAR_TBL" />
+          </AssociationSet>
+          <AssociationSet Name="RANDEVULAR_TBL_RAN_CAL_ID_fkey" Association="CallCenterModel.RANDEVULAR_TBL_RAN_CAL_ID_fkey">
+            <End Role="CALISMALAR_TBL" EntitySet="CALISMALAR_TBL" />
+            <End Role="RANDEVULAR_TBL" EntitySet="RANDEVULAR_TBL" />
+          </AssociationSet>
+          <AssociationSet Name="RANDEVULAR_TBL_RAN_IST_ID_fkey" Association="CallCenterModel.RANDEVULAR_TBL_RAN_IST_ID_fkey">
+            <End Role="ISTEKLER_TBL" EntitySet="ISTEKLER_TBL" />
+            <End Role="RANDEVULAR_TBL" EntitySet="RANDEVULAR_TBL" />
+          </AssociationSet>
+          <AssociationSet Name="RANDEVULAR_TBL_RAN_KUL_ID_fkey" Association="CallCenterModel.RANDEVULAR_TBL_RAN_KUL_ID_fkey">
+            <End Role="KULLANICILAR_TBL" EntitySet="KULLANICILAR_TBL" />
+            <End Role="RANDEVULAR_TBL" EntitySet="RANDEVULAR_TBL" />
+          </AssociationSet>
+          <AssociationSet Name="RANDEVULAR_TBL_RAN_DURUMID_fkey" Association="CallCenterModel.RANDEVULAR_TBL_RAN_DURUMID_fkey">
+            <End Role="RENKLER_TBL" EntitySet="RENKLER_TBL" />
+            <End Role="RANDEVULAR_TBL" EntitySet="RANDEVULAR_TBL" />
+          </AssociationSet>
+          <EntitySet Name="RANDEVULISTERENKLERI_TBL" EntityType="CallCenterModel.RANDEVULISTERENKLERI_TBL" />
+          <EntitySet Name="GENELAYARLAR_TBL" EntityType="CallCenterModel.GENELAYARLAR_TBL" />
+          <EntitySet Name="LOG_TBL" EntityType="CallCenterModel.LOG_TBL" />
+          <EntitySet Name="mv_study_name" EntityType="CallCenterModel.mv_study_name" />
+          <EntitySet Name="mv_tuik_personel" EntityType="CallCenterModel.mv_tuik_personel" />
+          </EntityContainer>
+        <EntityType Name="YETKILER_TBL">
+          <Key>
+            <PropertyRef Name="YET_ID" />
+          </Key>
+          <Property Name="YET_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Y_YONETIM" Type="Boolean" />
+          <Property Name="Y_GENELAYARLAR" Type="Boolean" />
+          <Property Name="Y_RANDEVUDURUMLARI" Type="Boolean" />
+          <Property Name="Y_CIKISKODLARI" Type="Boolean" />
+          <Property Name="Y_GENELTAKVIM" Type="Boolean" />
+          <Property Name="Y_CALISMALAR" Type="Boolean" />
+          <Property Name="Y_CALISMAISLEMLERI" Type="Boolean" />
+          <Property Name="Y_ROLVEYETKILER" Type="Boolean" />
+          <Property Name="Y_KULLANICILAR" Type="Boolean" />
+          <Property Name="Y_KULLANICICALISMALARI" Type="Boolean" />
+          <Property Name="Y_SSS" Type="Boolean" />
+          <Property Name="Y_FORUMISLEMLERI" Type="Boolean" />
+          <Property Name="Y_ISTEKEKLEADMIN" Type="Boolean" />
+          <Property Name="Y_RANDEVUAKTAR" Type="Boolean" />
+          <Property Name="Y_RAPOR" Type="Boolean" />
+          <Property Name="Y_RANDEVULAR" Type="Boolean" />
+          <Property Name="Y_CAGRILAR" Type="Boolean" />
+          <Property Name="Y_SESKAYDIBUL" Type="Boolean" />
+          <Property Name="Y_SESDINLE" Type="Boolean" />
+          <Property Name="Y_SESDISAAKTAR" Type="Boolean" />
+          <Property Name="Y_ISTEKLER" Type="Boolean" />
+          <Property Name="Y_LOGLAR" Type="Boolean" />
+          <Property Name="Y_KULLANICIIZLE" Type="Boolean" />
+          <Property Name="Y_OPERATOR" Type="Boolean" />
+          <Property Name="Y_RANDEVULARIM" Type="Boolean" />
+          <Property Name="Y_CAGRILARIM" Type="Boolean" />
+          <Property Name="Y_MESAJLARIM" Type="Boolean" />
+          <Property Name="Y_FORUMKULLAN" Type="Boolean" />
+          <Property Name="Y_YARDIM" Type="Boolean" />
+          <Property Name="Y_ISTEKEKLEOPERATOR" Type="Boolean" />
+          <Property Name="Y_CAGRIYAP" Type="Boolean" />
+          <Property Name="Y_BEKLEMEYEAL" Type="Boolean" />
+          <Property Name="Y_AKTAR" Type="Boolean" />
+          <Property Name="YET_ROLSIRANO" Type="Int16" />
+          <Property Name="Y_RANDEVUOLUSTUR" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="KULLANICILAR_TBL">
+          <Key>
+            <PropertyRef Name="KUL_ID" />
+          </Key>
+          <Property Name="KUL_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KUL_ADI" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="KUL_SIFRE" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="KUL_SANTRALUSERID" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="KUL_SANTRALSIFRE" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="KUL_ROL_ID" Type="Int64" />
+          <Property Name="KUL_KULLANICIID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="KUL_SEC" Type="Boolean" />
+          <Property Name="KUL_SIL" Type="Boolean" />
+          <Property Name="KUL_SILME_TARIH" Type="DateTime" Precision="6" />
+          <Property Name="KUL_SILME_KUL_ID" Type="Int32" />
+          <Property Name="KUL_MIKROFONDUZEYI" Type="Int32" />
+          <Property Name="KUL_HOPARLORDUZEYI" Type="Int32" />
+          <NavigationProperty Name="KULLANICICALISMALAR_TBL" Relationship="CallCenterModel.KULLANICICALISMALAR_TBL_KC_KUL_ID_fkey" FromRole="KULLANICILAR_TBL" ToRole="KULLANICICALISMALAR_TBL" />
+          <NavigationProperty Name="ROLLER_TBL" Relationship="CallCenterModel.KULLANICILAR_TBL_KUL_ROL_ID_fkey" FromRole="KULLANICILAR_TBL" ToRole="ROLLER_TBL" />
+          <NavigationProperty Name="RANDEVULAR_TBL" Relationship="CallCenterModel.RANDEVULAR_TBL_RAN_KUL_ID_fkey" FromRole="KULLANICILAR_TBL" ToRole="RANDEVULAR_TBL" />
+        </EntityType>
+        <Association Name="KULLANICICALISMALAR_TBL_KC_KUL_ID_fkey">
+          <End Type="CallCenterModel.KULLANICILAR_TBL" Role="KULLANICILAR_TBL" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CallCenterModel.KULLANICICALISMALAR_TBL" Role="KULLANICICALISMALAR_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KULLANICILAR_TBL">
+              <PropertyRef Name="KUL_ID" />
+            </Principal>
+            <Dependent Role="KULLANICICALISMALAR_TBL">
+              <PropertyRef Name="KC_KUL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="KULLANICILAR_TBL_KUL_ROL_ID_fkey">
+          <End Type="CallCenterModel.ROLLER_TBL" Role="ROLLER_TBL" Multiplicity="0..1" />
+          <End Type="CallCenterModel.KULLANICILAR_TBL" Role="KULLANICILAR_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLLER_TBL">
+              <PropertyRef Name="ROL_ID" />
+            </Principal>
+            <Dependent Role="KULLANICILAR_TBL">
+              <PropertyRef Name="KUL_ROL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ISTEKLER_TBL">
+          <Key>
+            <PropertyRef Name="IST_ID" />
+          </Key>
+          <Property Name="IST_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IST_TARIH" Type="DateTime" Precision="6" />
+          <Property Name="IST_CALISMAID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IST_KULLANICIID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IST_BIRIMNO" Type="Int64" />
+          <Property Name="IST_ALTBIRIMNO" Type="Int64" />
+          <Property Name="IST_REFYIL" Type="Int32" />
+          <Property Name="IST_REFDONEM" Type="Int32" />
+          <Property Name="IST_REFAY" Type="Int32" />
+          <Property Name="IST_REFHAFTA" Type="Int32" />
+          <Property Name="IST_TELNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IST_IL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IST_ACIKLAMA" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="IST_RANDEVUTERCIH" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="IST_NEDIR" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="IST_OKUNDU" Type="Boolean" />
+          <Property Name="IST_ICERDEN" Type="Boolean" />
+          <Property Name="IST_KAPANMAZAMANI" Type="DateTime" Precision="6" />
+          <NavigationProperty Name="CAGRILAR_TBL" Relationship="CallCenterModel.CAGRILAR_TBL_CAG_IST_ID_fkey" FromRole="ISTEKLER_TBL" ToRole="CAGRILAR_TBL" />
+          <NavigationProperty Name="RANDEVULAR_TBL" Relationship="CallCenterModel.RANDEVULAR_TBL_RAN_IST_ID_fkey" FromRole="ISTEKLER_TBL" ToRole="RANDEVULAR_TBL" />
+        </EntityType>
+        <EntityType Name="CAGRILAR_TBL">
+          <Key>
+            <PropertyRef Name="CAG_ID" />
+          </Key>
+          <Property Name="CAG_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CAG_CAL_ID" Type="Int64" />
+          <Property Name="CAG_KUL_ID" Type="Int64" />
+          <Property Name="CAG_TARIH" Type="DateTime" Precision="6" />
+          <Property Name="CAG_TELNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CAG_ACIKLAMA" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="CAG_CK_ID" Type="Int64" />
+          <Property Name="CAG_SANTRALCIKISKODU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CAG_IST_ID" Type="Int64" />
+          <Property Name="CAG_SURE" Type="Time" Precision="6" />
+          <Property Name="CAG_BASLAMA" Type="DateTime" Precision="6" />
+          <Property Name="CAG_BITIS" Type="DateTime" Precision="6" />
+          <Property Name="CAG_RAN_ID" Type="Int64" />
+          <NavigationProperty Name="ISTEKLER_TBL" Relationship="CallCenterModel.CAGRILAR_TBL_CAG_IST_ID_fkey" FromRole="CAGRILAR_TBL" ToRole="ISTEKLER_TBL" />
+        </EntityType>
+        <EntityType Name="RANDEVULAR_TBL">
+          <Key>
+            <PropertyRef Name="RAN_ID" />
+          </Key>
+          <Property Name="RAN_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RAN_CAL_ID" Type="Int64" />
+          <Property Name="RAN_KUL_ID" Type="Int64" />
+          <Property Name="RAN_BASLAMATARIH" Type="DateTime" Precision="6" />
+          <Property Name="RAN_BITISTARIH" Type="DateTime" Precision="6" />
+          <Property Name="RAN_TELNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RAN_ACIKLAMA" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="RAN_DURUMID" Type="Int64" />
+          <Property Name="RAN_IST_ID" Type="Int64" />
+          <Property Name="RAN_SEC" Type="Boolean" />
+          <Property Name="RAN_ACMA" Type="DateTime" Precision="6" />
+          <Property Name="RAN_KAPANMA" Type="DateTime" Precision="6" />
+          <NavigationProperty Name="CALISMALAR_TBL" Relationship="CallCenterModel.RANDEVULAR_TBL_RAN_CAL_ID_fkey" FromRole="RANDEVULAR_TBL" ToRole="CALISMALAR_TBL" />
+          <NavigationProperty Name="ISTEKLER_TBL" Relationship="CallCenterModel.RANDEVULAR_TBL_RAN_IST_ID_fkey" FromRole="RANDEVULAR_TBL" ToRole="ISTEKLER_TBL" />
+          <NavigationProperty Name="KULLANICILAR_TBL" Relationship="CallCenterModel.RANDEVULAR_TBL_RAN_KUL_ID_fkey" FromRole="RANDEVULAR_TBL" ToRole="KULLANICILAR_TBL" />
+          <NavigationProperty Name="RENKLER_TBL" Relationship="CallCenterModel.RANDEVULAR_TBL_RAN_DURUMID_fkey" FromRole="RANDEVULAR_TBL" ToRole="RENKLER_TBL" />
+        </EntityType>
+        <Association Name="CAGRILAR_TBL_CAG_IST_ID_fkey">
+          <End Type="CallCenterModel.ISTEKLER_TBL" Role="ISTEKLER_TBL" Multiplicity="0..1" />
+          <End Type="CallCenterModel.CAGRILAR_TBL" Role="CAGRILAR_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ISTEKLER_TBL">
+              <PropertyRef Name="IST_ID" />
+            </Principal>
+            <Dependent Role="CAGRILAR_TBL">
+              <PropertyRef Name="CAG_IST_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RANDEVULAR_TBL_RAN_CAL_ID_fkey">
+          <End Type="CallCenterModel.CALISMALAR_TBL" Role="CALISMALAR_TBL" Multiplicity="0..1" />
+          <End Type="CallCenterModel.RANDEVULAR_TBL" Role="RANDEVULAR_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CALISMALAR_TBL">
+              <PropertyRef Name="CAL_ID" />
+            </Principal>
+            <Dependent Role="RANDEVULAR_TBL">
+              <PropertyRef Name="RAN_CAL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RANDEVULAR_TBL_RAN_IST_ID_fkey">
+          <End Type="CallCenterModel.ISTEKLER_TBL" Role="ISTEKLER_TBL" Multiplicity="0..1" />
+          <End Type="CallCenterModel.RANDEVULAR_TBL" Role="RANDEVULAR_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ISTEKLER_TBL">
+              <PropertyRef Name="IST_ID" />
+            </Principal>
+            <Dependent Role="RANDEVULAR_TBL">
+              <PropertyRef Name="RAN_IST_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RANDEVULAR_TBL_RAN_KUL_ID_fkey">
+          <End Type="CallCenterModel.KULLANICILAR_TBL" Role="KULLANICILAR_TBL" Multiplicity="0..1" />
+          <End Type="CallCenterModel.RANDEVULAR_TBL" Role="RANDEVULAR_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KULLANICILAR_TBL">
+              <PropertyRef Name="KUL_ID" />
+            </Principal>
+            <Dependent Role="RANDEVULAR_TBL">
+              <PropertyRef Name="RAN_KUL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RANDEVULAR_TBL_RAN_DURUMID_fkey">
+          <End Type="CallCenterModel.RENKLER_TBL" Role="RENKLER_TBL" Multiplicity="0..1" />
+          <End Type="CallCenterModel.RANDEVULAR_TBL" Role="RANDEVULAR_TBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RENKLER_TBL">
+              <PropertyRef Name="RENK_ID" />
+            </Principal>
+            <Dependent Role="RANDEVULAR_TBL">
+              <PropertyRef Name="RAN_DURUMID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="RANDEVULISTERENKLERI_TBL">
+          <Key>
+            <PropertyRef Name="BR_ID" />
+          </Key>
+          <Property Name="BR_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BR_RENKKODU" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="BR_SURE1" Type="Time" Precision="6" />
+          <Property Name="BR_SURE2" Type="Time" Precision="6" />
+        </EntityType>
+        <EntityType Name="GENELAYARLAR_TBL">
+          <Key>
+            <PropertyRef Name="GA_ID" />
+          </Key>
+          <Property Name="GA_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GA_GUNBASLAMASAAT" Type="Time" Precision="6" />
+          <Property Name="GA_GUNBITISSAAT" Type="Time" Precision="6" />
+          <Property Name="GA_CUMARTESICALIS" Type="Boolean" />
+          <Property Name="GA_PAZARCALIS" Type="Boolean" />
+          <Property Name="GA_ANASAYFA_BASLIK" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="GA_FTP_IP" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="GA_FTP_KULLANICI" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="GA_FTP_SIFRE" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="GA_FTP_DIZIN" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="GA_RANDEVUISTEKSAYFA" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="GA_ROLSIRA" Type="Int32" />
+          <Property Name="GA_CIHAZIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GA_YAKLASANRANDEVUDK" Type="Time" Precision="6" />
+          <Property Name="GA_VERSIYON" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LOG_TBL">
+          <Key>
+            <PropertyRef Name="LG_ID" />
+          </Key>
+          <Property Name="LG_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LG_TARIH" Type="DateTime" Precision="6" />
+          <Property Name="LG_KUL_ID" Type="Int64" />
+          <Property Name="LG_ISLEM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LG_ISLEMDETAY" Type="String" MaxLength="5000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="mv_study_name">
+          <Key>
+            <PropertyRef Name="study_id" />
+          </Key>
+          <Property Name="study_id" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="study_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="mv_tuik_personel">
+          <Key>
+            <PropertyRef Name="tc_kimlik_no" />
+          </Key>
+          <Property Name="tc_kimlik_no" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="adsoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dairebsk_adi" Type="String" MaxLength="72" FixedLength="false" Unicode="true" />
+          <Property Name="birim_adi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="birim_kod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="kisadaire_bask_kod" Type="String" MaxLength="8000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CallCenterModelStoreContainer" CdmEntityContainer="CallCenterEntities">
+          <EntitySetMapping Name="CALISMACIKISKODLARI_TBL">
+            <EntityTypeMapping TypeName="CallCenterModel.CALISMACIKISKODLARI_TBL">
+              <MappingFragment StoreEntitySet="CALISMACIKISKODLARI_TBL">
+                <ScalarProperty Name="CCK_ID" ColumnName="CCK_ID" />
+                <ScalarProperty Name="CCK_CAL_ID" ColumnName="CCK_CAL_ID" />
+                <ScalarProperty Name="CCK_CK_ID" ColumnName="CCK_CK_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CALISMALAR_TBL">
+            <EntityTypeMapping TypeName="CallCenterModel.CALISMALAR_TBL">
+              <MappingFragment StoreEntitySet="CALISMALAR_TBL">
+                <ScalarProperty Name="CAL_ID" ColumnName="CAL_ID" />
+                <ScalarProperty Name="CAL_ADI" ColumnName="CAL_ADI" />
+                <ScalarProperty Name="CAL_PERIYOT" ColumnName="CAL_PERIYOT" />
+                <ScalarProperty Name="CAL_BASLAMATARIH" ColumnName="CAL_BASLAMATARIH" />
+                <ScalarProperty Name="CAL_BITISTARIH" ColumnName="CAL_BITISTARIH" />
+                <ScalarProperty Name="CAL_GUNBASLAMASAAT" ColumnName="CAL_GUNBASLAMASAAT" />
+                <ScalarProperty Name="CAL_GUNBITISSAAT" ColumnName="CAL_GUNBITISSAAT" />
+                <ScalarProperty Name="CAL_RANDEVUARALIK" ColumnName="CAL_RANDEVUARALIK" />
+                <ScalarProperty Name="CAL_MANUELARAMA" ColumnName="CAL_MANUELARAMA" />
+                <ScalarProperty Name="CAL_CALISMAID" ColumnName="CAL_CALISMAID" />
+                <ScalarProperty Name="CAL_YIL" ColumnName="CAL_YIL" />
+                <ScalarProperty Name="CAL_SEC" ColumnName="CAL_SEC" />
+                <ScalarProperty Name="CAL_SIL" ColumnName="CAL_SIL" />
+                <ScalarProperty Name="CAL_SILME_TARIH" ColumnName="CAL_SILME_TARIH" />
+                <ScalarProperty Name="CAL_SILME_KUL_ID" ColumnName="CAL_SILME_KUL_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CALISMAPERIYOTLARI_TBL">
+            <EntityTypeMapping TypeName="CallCenterModel.CALISMAPERIYOTLARI_TBL">
+              <MappingFragment StoreEntitySet="CALISMAPERIYOTLARI_TBL">
+                <ScalarProperty Name="CP_CAL_ID" ColumnName="CP_CAL_ID" />
+                <ScalarProperty Name="CP_REFDONEM" ColumnName="CP_REFDONEM" />
+                <ScalarProperty Name="CP_REFAY" ColumnName="CP_REFAY" />
+                <ScalarProperty Name="CP_REFHAFTA" ColumnName="CP_REFHAFTA" />
+                <ScalarProperty Name="CP_REF_MA_BASLANGIC" ColumnName="CP_REF_MA_BASLANGIC" />
+                <ScalarProperty Name="CP_REF_MA_BITIS" ColumnName="CP_REF_MA_BITIS" />
+                <ScalarProperty Name="CP_AKTIF" ColumnName="CP_AKTIF" />
+                <ScalarProperty Name="CP_BASLAMATARIH" ColumnName="CP_BASLAMATARIH" />
+                <ScalarProperty Name="CP_BITISTARIH" ColumnName="CP_BITISTARIH" />
+                <ScalarProperty Name="CP_REFYIL" ColumnName="CP_REFYIL" />
+                <ScalarProperty Name="CP_ID" ColumnName="CP_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CALISMATAKVIMI_TBL">
+            <EntityTypeMapping TypeName="CallCenterModel.CALISMATAKVIMI_TBL">
+              <MappingFragment StoreEntitySet="CALISMATAKVIMI_TBL">
+                <ScalarProperty Name="CT_ID" ColumnName="CT_ID" />
+                <ScalarProperty Name="CT_CAL_ID" ColumnName="CT_CAL_ID" />
+                <ScalarProperty Name="CT_ADI" ColumnName="CT_ADI" />
+                <ScalarProperty Name="CT_BASLAMA" ColumnName="CT_BASLAMA" />
+                <ScalarProperty Name="CT_BITIS" ColumnName="CT_BITIS" />
+                <ScalarProperty Name="CT_CALIS" ColumnName="CT_CALIS" />
+                <ScalarProperty Name="CT_SIL" ColumnName="CT_SIL" />
+                <ScalarProperty Name="CT_SILME_TARIH" ColumnName="CT_SILME_TARIH" />
+                <ScalarProperty Name="CT_SILME_KUL_ID" ColumnName="CT_SILME_KUL_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CIKISKODLARI_TBL">
+            <EntityTypeMapping TypeName="CallCenterModel.CIKISKODLARI_TBL">
+              <MappingFragment StoreEntitySet="CIKISKODLARI_TBL">
+                <ScalarProperty Name="CK_ID" ColumnName="CK_ID" />
+                <ScalarProperty Name="CK_KOD" ColumnName="CK_KOD" />
+                <ScalarProperty Name="CK_ACIKLAMA" ColumnName="CK_ACIKLAMA" />
+                <ScalarProperty Name="CK_SEC" ColumnName="CK_SEC" />
+                <ScalarProperty Name="CK_AKTIF" ColumnName="CK_AKTIF" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FORUMKONULARI_TBL">
+            <EntityTypeMapping TypeName="CallCenterModel.FORUMKONULARI_TBL">
+              <MappingFragment StoreEntitySet="FORUMKONULARI_TBL">
+                <ScalarProperty Name="FR_ID" ColumnName="FR_ID" />
+                <ScalarProperty Name="FR_OLUSTURMATARIH" ColumnName="FR_OLUSTURMATARIH" />
+                <ScalarProperty Name="FR_ADI" ColumnName="FR_ADI" />
+                <ScalarProperty Name="FR_ACIKLAMA" ColumnName="FR_ACIKLAMA" />
+                <ScalarProperty Name="FR_AKTIF" ColumnName="FR_AKTIF" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GENELTAKVIM_TBL">
+            <EntityTypeMapping TypeName="CallCenterModel.GENELTAKVIM_TBL">
+              <MappingFragment StoreEntitySet="GENELTAKVIM_TBL">
+                <ScalarProperty Name="GT_ID" ColumnName="GT_ID" />
+                <ScalarProperty Name="GT_ADI" ColumnName="GT_ADI" />
+                <ScalarProperty Name="GT_BASLAMA" ColumnName="GT_BASLAMA" />
+                <ScalarProperty Name="GT_BITIS" ColumnName="GT_BITIS" />
+                <ScalarProperty Name="GT_CALIS" ColumnName="GT_CALIS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KULLANICICALISMALAR_TBL">
+            <EntityTypeMapping TypeName="CallCenterModel.KULLANICICALISMALAR_TBL">
+              <MappingFragment StoreEntitySet="KULLANICICALISMALAR_TBL">
+                <ScalarProperty Name="KC_ID" ColumnName="KC_ID" />
+                <ScalarProperty Name="KC_KUL_ID" ColumnName="KC_KUL_ID" />
+                <ScalarProperty Name="KC_CAL_ID" ColumnName="KC_CAL_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MESAJALICILARI_TBL">
+            <EntityTypeMapping TypeName="CallCenterModel.MESAJALICILARI_TBL">
+              <MappingFragment StoreEntitySet="MESAJALICILARI_TBL">
+                <ScalarProperty Name="MA_ID" ColumnName="MA_ID" />
+                <ScalarProperty Name="MA_MSJ_ID" ColumnName="MA_MSJ_ID" />
+                <ScalarProperty Name="MA_ALICI_KUL_ID" ColumnName="MA_ALICI_KUL_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MESAJLAR_TBL">
+            <EntityTypeMapping TypeName="CallCenterModel.MESAJLAR_TBL">
+              <MappingFragment StoreEntitySet="MESAJLAR_TBL">
+                <ScalarProperty Name="MSJ_ID" ColumnName="MSJ_ID" />
+                <ScalarProperty Name="MSJ_KUL_ID" ColumnName="MSJ_KUL_ID" />
+                <ScalarProperty Name="MSJ_FR_ID" ColumnName="MSJ_FR_ID" />
+                <ScalarProperty Name="MSJ_TARIH" ColumnName="MSJ_TARIH" />
+                <ScalarProperty Name="MSJ_MESAJ" ColumnName="MSJ_MESAJ" />
+                <ScalarProperty Name="MSJ_OKUNDU" ColumnName="MSJ_OKUNDU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RENKLER_TBL">
+            <EntityTypeMapping TypeName="CallCenterModel.RENKLER_TBL">
+              <MappingFragment StoreEntitySet="RENKLER_TBL">
+                <ScalarProperty Name="RENK_ID" ColumnName="RENK_ID" />
+                <ScalarProperty Name="RENK_KOD" ColumnName="RENK_KOD" />
+                <ScalarProperty Name="RENK_BASLIK" ColumnName="RENK_BASLIK" />
+                <ScalarProperty Name="RENK_HEX" ColumnName="RENK_HEX" />
+                <ScalarProperty Name="RENK_GOSTER" ColumnName="RENK_GOSTER" />
+                <ScalarProperty Name="RENK_AKTIF" ColumnName="RENK_AKTIF" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROLLER_TBL">
+            <EntityTypeMapping TypeName="CallCenterModel.ROLLER_TBL">
+              <MappingFragment StoreEntitySet="ROLLER_TBL">
+                <ScalarProperty Name="ROL_ANAROL" ColumnName="ROL_ANAROL" />
+                <ScalarProperty Name="ROL_ID" ColumnName="ROL_ID" />
+                <ScalarProperty Name="ROL_ADI" ColumnName="ROL_ADI" />
+                <ScalarProperty Name="ROL_SIRA" ColumnName="ROL_SIRA" />
+                <ScalarProperty Name="ROL_ACIKLAMA" ColumnName="ROL_ACIKLAMA" />
+                <ScalarProperty Name="ROL_AKTIF" ColumnName="ROL_AKTIF" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SSS_TBL">
+            <EntityTypeMapping TypeName="CallCenterModel.SSS_TBL">
+              <MappingFragment StoreEntitySet="SSS_TBL">
+                <ScalarProperty Name="SS_ID" ColumnName="SS_ID" />
+                <ScalarProperty Name="SS_CAL_ID" ColumnName="SS_CAL_ID" />
+                <ScalarProperty Name="SS_SORU" ColumnName="SS_SORU" />
+                <ScalarProperty Name="SS_CEVAP" ColumnName="SS_CEVAP" />
+                <ScalarProperty Name="SS_AKTIF" ColumnName="SS_AKTIF" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YETKIACIKLAMALAR_TBL">
+            <EntityTypeMapping TypeName="CallCenterModel.YETKIACIKLAMALAR_TBL">
+              <MappingFragment StoreEntitySet="YETKIACIKLAMALAR_TBL">
+                <ScalarProperty Name="YA_ID" ColumnName="YA_ID" />
+                <ScalarProperty Name="YA_YETKIACIKLAMA" ColumnName="YA_YETKIACIKLAMA" />
+                <ScalarProperty Name="YA_YETKI" ColumnName="YA_YETKI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YETKILER_TBL">
+            <EntityTypeMapping TypeName="CallCenterModel.YETKILER_TBL">
+              <MappingFragment StoreEntitySet="YETKILER_TBL">
+                <ScalarProperty Name="Y_RANDEVUOLUSTUR" ColumnName="Y_RANDEVUOLUSTUR" />
+                <ScalarProperty Name="YET_ROLSIRANO" ColumnName="YET_ROLSIRANO" />
+                <ScalarProperty Name="Y_AKTAR" ColumnName="Y_AKTAR" />
+                <ScalarProperty Name="Y_BEKLEMEYEAL" ColumnName="Y_BEKLEMEYEAL" />
+                <ScalarProperty Name="Y_CAGRIYAP" ColumnName="Y_CAGRIYAP" />
+                <ScalarProperty Name="Y_ISTEKEKLEOPERATOR" ColumnName="Y_ISTEKEKLEOPERATOR" />
+                <ScalarProperty Name="Y_YARDIM" ColumnName="Y_YARDIM" />
+                <ScalarProperty Name="Y_FORUMKULLAN" ColumnName="Y_FORUMKULLAN" />
+                <ScalarProperty Name="Y_MESAJLARIM" ColumnName="Y_MESAJLARIM" />
+                <ScalarProperty Name="Y_CAGRILARIM" ColumnName="Y_CAGRILARIM" />
+                <ScalarProperty Name="Y_RANDEVULARIM" ColumnName="Y_RANDEVULARIM" />
+                <ScalarProperty Name="Y_OPERATOR" ColumnName="Y_OPERATOR" />
+                <ScalarProperty Name="Y_KULLANICIIZLE" ColumnName="Y_KULLANICIIZLE" />
+                <ScalarProperty Name="Y_LOGLAR" ColumnName="Y_LOGLAR" />
+                <ScalarProperty Name="Y_ISTEKLER" ColumnName="Y_ISTEKLER" />
+                <ScalarProperty Name="Y_SESDISAAKTAR" ColumnName="Y_SESDISAAKTAR" />
+                <ScalarProperty Name="Y_SESDINLE" ColumnName="Y_SESDINLE" />
+                <ScalarProperty Name="Y_SESKAYDIBUL" ColumnName="Y_SESKAYDIBUL" />
+                <ScalarProperty Name="Y_CAGRILAR" ColumnName="Y_CAGRILAR" />
+                <ScalarProperty Name="Y_RANDEVULAR" ColumnName="Y_RANDEVULAR" />
+                <ScalarProperty Name="Y_RAPOR" ColumnName="Y_RAPOR" />
+                <ScalarProperty Name="Y_RANDEVUAKTAR" ColumnName="Y_RANDEVUAKTAR" />
+                <ScalarProperty Name="Y_ISTEKEKLEADMIN" ColumnName="Y_ISTEKEKLEADMIN" />
+                <ScalarProperty Name="Y_FORUMISLEMLERI" ColumnName="Y_FORUMISLEMLERI" />
+                <ScalarProperty Name="Y_SSS" ColumnName="Y_SSS" />
+                <ScalarProperty Name="Y_KULLANICICALISMALARI" ColumnName="Y_KULLANICICALISMALARI" />
+                <ScalarProperty Name="Y_KULLANICILAR" ColumnName="Y_KULLANICILAR" />
+                <ScalarProperty Name="Y_ROLVEYETKILER" ColumnName="Y_ROLVEYETKILER" />
+                <ScalarProperty Name="Y_CALISMAISLEMLERI" ColumnName="Y_CALISMAISLEMLERI" />
+                <ScalarProperty Name="Y_CALISMALAR" ColumnName="Y_CALISMALAR" />
+                <ScalarProperty Name="Y_GENELTAKVIM" ColumnName="Y_GENELTAKVIM" />
+                <ScalarProperty Name="Y_CIKISKODLARI" ColumnName="Y_CIKISKODLARI" />
+                <ScalarProperty Name="Y_RANDEVUDURUMLARI" ColumnName="Y_RANDEVUDURUMLARI" />
+                <ScalarProperty Name="Y_GENELAYARLAR" ColumnName="Y_GENELAYARLAR" />
+                <ScalarProperty Name="Y_YONETIM" ColumnName="Y_YONETIM" />
+                <ScalarProperty Name="YET_ID" ColumnName="YET_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KULLANICILAR_TBL">
+            <EntityTypeMapping TypeName="CallCenterModel.KULLANICILAR_TBL">
+              <MappingFragment StoreEntitySet="KULLANICILAR_TBL">
+                <ScalarProperty Name="KUL_HOPARLORDUZEYI" ColumnName="KUL_HOPARLORDUZEYI" />
+                <ScalarProperty Name="KUL_MIKROFONDUZEYI" ColumnName="KUL_MIKROFONDUZEYI" />
+                <ScalarProperty Name="KUL_SILME_KUL_ID" ColumnName="KUL_SILME_KUL_ID" />
+                <ScalarProperty Name="KUL_SILME_TARIH" ColumnName="KUL_SILME_TARIH" />
+                <ScalarProperty Name="KUL_SIL" ColumnName="KUL_SIL" />
+                <ScalarProperty Name="KUL_SEC" ColumnName="KUL_SEC" />
+                <ScalarProperty Name="KUL_KULLANICIID" ColumnName="KUL_KULLANICIID" />
+                <ScalarProperty Name="KUL_ROL_ID" ColumnName="KUL_ROL_ID" />
+                <ScalarProperty Name="KUL_SANTRALSIFRE" ColumnName="KUL_SANTRALSIFRE" />
+                <ScalarProperty Name="KUL_SANTRALUSERID" ColumnName="KUL_SANTRALUSERID" />
+                <ScalarProperty Name="KUL_SIFRE" ColumnName="KUL_SIFRE" />
+                <ScalarProperty Name="KUL_ADI" ColumnName="KUL_ADI" />
+                <ScalarProperty Name="KUL_ID" ColumnName="KUL_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ISTEKLER_TBL">
+            <EntityTypeMapping TypeName="CallCenterModel.ISTEKLER_TBL">
+              <MappingFragment StoreEntitySet="ISTEKLER_TBL">
+                <ScalarProperty Name="IST_KAPANMAZAMANI" ColumnName="IST_KAPANMAZAMANI" />
+                <ScalarProperty Name="IST_ICERDEN" ColumnName="IST_ICERDEN" />
+                <ScalarProperty Name="IST_OKUNDU" ColumnName="IST_OKUNDU" />
+                <ScalarProperty Name="IST_NEDIR" ColumnName="IST_NEDIR" />
+                <ScalarProperty Name="IST_RANDEVUTERCIH" ColumnName="IST_RANDEVUTERCIH" />
+                <ScalarProperty Name="IST_ACIKLAMA" ColumnName="IST_ACIKLAMA" />
+                <ScalarProperty Name="IST_IL" ColumnName="IST_IL" />
+                <ScalarProperty Name="IST_TELNO" ColumnName="IST_TELNO" />
+                <ScalarProperty Name="IST_REFHAFTA" ColumnName="IST_REFHAFTA" />
+                <ScalarProperty Name="IST_REFAY" ColumnName="IST_REFAY" />
+                <ScalarProperty Name="IST_REFDONEM" ColumnName="IST_REFDONEM" />
+                <ScalarProperty Name="IST_REFYIL" ColumnName="IST_REFYIL" />
+                <ScalarProperty Name="IST_ALTBIRIMNO" ColumnName="IST_ALTBIRIMNO" />
+                <ScalarProperty Name="IST_BIRIMNO" ColumnName="IST_BIRIMNO" />
+                <ScalarProperty Name="IST_KULLANICIID" ColumnName="IST_KULLANICIID" />
+                <ScalarProperty Name="IST_CALISMAID" ColumnName="IST_CALISMAID" />
+                <ScalarProperty Name="IST_TARIH" ColumnName="IST_TARIH" />
+                <ScalarProperty Name="IST_ID" ColumnName="IST_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CAGRILAR_TBL">
+            <EntityTypeMapping TypeName="CallCenterModel.CAGRILAR_TBL">
+              <MappingFragment StoreEntitySet="CAGRILAR_TBL">
+                <ScalarProperty Name="CAG_RAN_ID" ColumnName="CAG_RAN_ID" />
+                <ScalarProperty Name="CAG_BITIS" ColumnName="CAG_BITIS" />
+                <ScalarProperty Name="CAG_BASLAMA" ColumnName="CAG_BASLAMA" />
+                <ScalarProperty Name="CAG_SURE" ColumnName="CAG_SURE" />
+                <ScalarProperty Name="CAG_IST_ID" ColumnName="CAG_IST_ID" />
+                <ScalarProperty Name="CAG_SANTRALCIKISKODU" ColumnName="CAG_SANTRALCIKISKODU" />
+                <ScalarProperty Name="CAG_CK_ID" ColumnName="CAG_CK_ID" />
+                <ScalarProperty Name="CAG_ACIKLAMA" ColumnName="CAG_ACIKLAMA" />
+                <ScalarProperty Name="CAG_TELNO" ColumnName="CAG_TELNO" />
+                <ScalarProperty Name="CAG_TARIH" ColumnName="CAG_TARIH" />
+                <ScalarProperty Name="CAG_KUL_ID" ColumnName="CAG_KUL_ID" />
+                <ScalarProperty Name="CAG_CAL_ID" ColumnName="CAG_CAL_ID" />
+                <ScalarProperty Name="CAG_ID" ColumnName="CAG_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RANDEVULAR_TBL">
+            <EntityTypeMapping TypeName="CallCenterModel.RANDEVULAR_TBL">
+              <MappingFragment StoreEntitySet="RANDEVULAR_TBL">
+                <ScalarProperty Name="RAN_KAPANMA" ColumnName="RAN_KAPANMA" />
+                <ScalarProperty Name="RAN_ACMA" ColumnName="RAN_ACMA" />
+                <ScalarProperty Name="RAN_SEC" ColumnName="RAN_SEC" />
+                <ScalarProperty Name="RAN_IST_ID" ColumnName="RAN_IST_ID" />
+                <ScalarProperty Name="RAN_DURUMID" ColumnName="RAN_DURUMID" />
+                <ScalarProperty Name="RAN_ACIKLAMA" ColumnName="RAN_ACIKLAMA" />
+                <ScalarProperty Name="RAN_TELNO" ColumnName="RAN_TELNO" />
+                <ScalarProperty Name="RAN_BITISTARIH" ColumnName="RAN_BITISTARIH" />
+                <ScalarProperty Name="RAN_BASLAMATARIH" ColumnName="RAN_BASLAMATARIH" />
+                <ScalarProperty Name="RAN_KUL_ID" ColumnName="RAN_KUL_ID" />
+                <ScalarProperty Name="RAN_CAL_ID" ColumnName="RAN_CAL_ID" />
+                <ScalarProperty Name="RAN_ID" ColumnName="RAN_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RANDEVULISTERENKLERI_TBL">
+            <EntityTypeMapping TypeName="CallCenterModel.RANDEVULISTERENKLERI_TBL">
+              <MappingFragment StoreEntitySet="RANDEVULISTERENKLERI_TBL">
+                <ScalarProperty Name="BR_SURE2" ColumnName="BR_SURE2" />
+                <ScalarProperty Name="BR_SURE1" ColumnName="BR_SURE1" />
+                <ScalarProperty Name="BR_RENKKODU" ColumnName="BR_RENKKODU" />
+                <ScalarProperty Name="BR_ID" ColumnName="BR_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GENELAYARLAR_TBL">
+            <EntityTypeMapping TypeName="CallCenterModel.GENELAYARLAR_TBL">
+              <MappingFragment StoreEntitySet="GENELAYARLAR_TBL">
+                <ScalarProperty Name="GA_VERSIYON" ColumnName="GA_VERSIYON" />
+                <ScalarProperty Name="GA_YAKLASANRANDEVUDK" ColumnName="GA_YAKLASANRANDEVUDK" />
+                <ScalarProperty Name="GA_CIHAZIP" ColumnName="GA_CIHAZIP" />
+                <ScalarProperty Name="GA_ROLSIRA" ColumnName="GA_ROLSIRA" />
+                <ScalarProperty Name="GA_RANDEVUISTEKSAYFA" ColumnName="GA_RANDEVUISTEKSAYFA" />
+                <ScalarProperty Name="GA_FTP_DIZIN" ColumnName="GA_FTP_DIZIN" />
+                <ScalarProperty Name="GA_FTP_SIFRE" ColumnName="GA_FTP_SIFRE" />
+                <ScalarProperty Name="GA_FTP_KULLANICI" ColumnName="GA_FTP_KULLANICI" />
+                <ScalarProperty Name="GA_FTP_IP" ColumnName="GA_FTP_IP" />
+                <ScalarProperty Name="GA_ANASAYFA_BASLIK" ColumnName="GA_ANASAYFA_BASLIK" />
+                <ScalarProperty Name="GA_PAZARCALIS" ColumnName="GA_PAZARCALIS" />
+                <ScalarProperty Name="GA_CUMARTESICALIS" ColumnName="GA_CUMARTESICALIS" />
+                <ScalarProperty Name="GA_GUNBITISSAAT" ColumnName="GA_GUNBITISSAAT" />
+                <ScalarProperty Name="GA_GUNBASLAMASAAT" ColumnName="GA_GUNBASLAMASAAT" />
+                <ScalarProperty Name="GA_ID" ColumnName="GA_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOG_TBL">
+            <EntityTypeMapping TypeName="CallCenterModel.LOG_TBL">
+              <MappingFragment StoreEntitySet="LOG_TBL">
+                <ScalarProperty Name="LG_ISLEMDETAY" ColumnName="LG_ISLEMDETAY" />
+                <ScalarProperty Name="LG_ISLEM" ColumnName="LG_ISLEM" />
+                <ScalarProperty Name="LG_KUL_ID" ColumnName="LG_KUL_ID" />
+                <ScalarProperty Name="LG_TARIH" ColumnName="LG_TARIH" />
+                <ScalarProperty Name="LG_ID" ColumnName="LG_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mv_study_name">
+            <EntityTypeMapping TypeName="CallCenterModel.mv_study_name">
+              <MappingFragment StoreEntitySet="mv_study_name">
+                <ScalarProperty Name="study_name" ColumnName="study_name" />
+                <ScalarProperty Name="study_id" ColumnName="study_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mv_tuik_personel">
+            <EntityTypeMapping TypeName="CallCenterModel.mv_tuik_personel">
+              <MappingFragment StoreEntitySet="mv_tuik_personel">
+                <ScalarProperty Name="kisadaire_bask_kod" ColumnName="kisadaire_bask_kod" />
+                <ScalarProperty Name="birim_kod" ColumnName="birim_kod" />
+                <ScalarProperty Name="birim_adi" ColumnName="birim_adi" />
+                <ScalarProperty Name="dairebsk_adi" ColumnName="dairebsk_adi" />
+                <ScalarProperty Name="adsoyad" ColumnName="adsoyad" />
+                <ScalarProperty Name="tc_kimlik_no" ColumnName="tc_kimlik_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
